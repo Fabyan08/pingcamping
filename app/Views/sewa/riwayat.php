@@ -6,10 +6,10 @@
 
 <div class="site-section">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="row mb-2">
+        <div class="row justify-content-center mt-20">
+            <div class="row mb-2 mt-40"  style="margin-top: 50px;">
                 <div class="col-lg-12">
-                    <h2 class="fw-bold">Riwayat</h2>
+                    <h2 class="fw-bold text-center">RIWAYAT PEMESANAN</h2>
                 </div>
             </div>
         </div>
@@ -32,63 +32,36 @@
             </div>
         <?php } ?>
 
-        <div class="row justify-content-center">
-            <div class="container mt-4">
-                <div class="card">
-                    <div class="card-body">
-
-                        <table id="myTable" class="table table-bordered table-hover" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama Barang</th>
-                                    <th>Jumlah Barang</th>
-                                    <th>Tanggal Sewa</th>
-                                    <th>Tanggal Kembali</th>
-                                    <th>Total Harga</th>
-
-                                    <th>Nama Kurir</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                <?php foreach ($data_sewa as $key => $value) : ?>
-                                    <tr>
-                                        <td><?= $key + 1 ?></td>
-                                        <td><?= $value['nama_barang'] ?></td>
-                                        <td><?= $value['jumlah_barang'] ?></td>
-                                        <td><?= $value['tanggal_sewa'] ?></td>
-                                        <td><?= $value['tanggal_kembali'] ?></td>
-                                        <td><?= $value['total_harga'] ?></td>
-
-                                        <td><?= $value['nama_kurir']  ?></td>
-                                        <td><?= $value['status'] ?></td>
-
-                                    </tr>
-
-                                    <!-- MODAL EDIT -->
-                                    <div class="modal fade" id="ubah_sewa<?= $value['id_sewa'] ?>">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-
-                                                <!-- Header Modal -->
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Tambah Kurir</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
+        <div class="container">
+            <div class="row">
+                <?php foreach ($data_sewa as $key => $value) : ?>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header bg-black text-white">
+                                <h5 class="card-title"><?= date("d F Y", strtotime($value['tanggal_sewa'])) ?></h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h6><?= $value['nama_barang'] ?></h6>
+                                        <h6>Metode Pembayaran Transfer <?= $value['pembayaran'] ?></h6>
                                     </div>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                                    <div class="col-md-3">
+                                        <h6><?= 'Rp ' . number_format($value['total_harga'], 0, ',', '.'); ?></h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-black text-white text-center">
+                                <a href="cetak?id_sewa=<?= $value['id_sewa'] ?>" class="text-white">Lihat Detail</a>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
+
+
     </div>
 
 

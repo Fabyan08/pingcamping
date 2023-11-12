@@ -13,6 +13,7 @@ $routes->group("Web", function ($routes) {
 
     $routes->get('sewa', 'Web::sewa');
     $routes->post('proses_sewa', 'Web::proses_sewa');
+    $routes->get('berhasil', 'Web::berhasil');
 
     $routes->get('profil', 'Web::profil');
     $routes->post('ubah_profil', 'Web::ubah_profil');
@@ -24,6 +25,7 @@ $routes->group("Web", function ($routes) {
 
 
     $routes->get('riwayat', 'Web::riwayat');
+    $routes->get('cetak', 'Web::cetak');
 });
 
 $routes->group("Login", function ($routes) {

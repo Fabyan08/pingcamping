@@ -77,7 +77,7 @@
                                 <label for="yaRadio">Ya</label>
                             </div>
                             <div class="col-md-2">
-                                <input  value="tidak" name="nokurir" type="radio" name="kurirOption" id="tidakRadio">
+                                <input value="tidak" name="nokurir" type="radio" name="kurirOption" id="tidakRadio">
                                 <label for="tidakRadio">Tidak</label>
                             </div>
                         </div>
@@ -99,6 +99,25 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="form-label">Metode Pembayaran</label>
+                                <div class="row">
+                                    <div class="col">
+                                        <select name="pembayaran" id="pembayaran" class="form-control">
+                                            <option value="Cash">Cash</option>
+                                            <option value="BCA">BCA</option>
+                                            <option value="Mandiri">Mandiri</option>
+                                            <option value="Bank Jatim">Bank Jatim</option>
+                                            <option value="BRI">BRI</option>
+                                            <option value="BSI">BSI</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <script>
                             var yaRadio = document.getElementById("yaRadio");
                             var tidakRadio = document.getElementById("tidakRadio");
@@ -114,31 +133,8 @@
                         </script>
 
 
-                        <!-- <div class="row">
-                            <div class="col-md-4">
-                                <label class="form-label">Total Harga Sewa</label>
-                                <input type="number" name="tanggal_kembali" class="form-control" placeholder="" required>
-                            </div>
-                        </div> -->
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label class="form-label">Metode Pembayaran</label>
-                                <div class="row">
 
-                                    <div class="col">
 
-                                        <select name="" id="" class="form-control">
-                                            <option value="">Cash</option>
-                                            <option value="">BCA</option>
-                                            <option value="">Mandiri</option>
-                                            <option value="">Bank Jatim</option>
-                                            <option value="">BRI</option>
-                                            <option value="">BSI</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
 

@@ -58,6 +58,7 @@ class Web extends BaseController
         $jumlah_barang = $this->request->getPost('jumlah_barang');
 
         $nama_pengguna = session()->get('nama');
+        $pembayaran = $this->request->getPost('pembayaran');
 
 
 
@@ -90,11 +91,11 @@ class Web extends BaseController
         $total_harga = $harga_sewa * $lama_sewa + $harga_kurir;
 
         $this->db->query("INSERT INTO tb_sewa VALUES 
-        ('', '$nama_barang', '$jumlah_barang','$nama_pengguna',' $tanggal_sewa', '$tanggal_kembali', '$nama_kurir','$total_harga', 0, 'Lunas') ");
+        ('', '$nama_barang', '$jumlah_barang','$nama_pengguna',' $tanggal_sewa', '$tanggal_kembali', '$nama_kurir','$total_harga','$pembayaran', 'Lunas') ");
 
 
         session()->setFlashdata('success', 'Terimakasih pesanan anda sedang kami proses');
-        return redirect('Web/sewa');
+        return redirect('Web/berhasil');
     }
 
     public function profil()
@@ -137,6 +138,61 @@ class Web extends BaseController
 
         return view('sewa/riwayat', $data);
     }
+    public function cetak()
+    {
+        $id_pengguna = session()->get('id_pengguna');
+
+        $pengguna = $this->db->query("SELECT * FROM tb_akun WHERE id_pengguna = '$id_pengguna'")->getResultArray();
+
+
+
+
+        $id_sewa = $this->request->getGet('id_sewa');
+        // Load the Query Builder library
+        $builder = $this->db->table('tb_sewa');
+        $builder->select('tb_sewa.*, tb_akun.hp, tb_akun.alamat');
+        $builder->join('tb_akun', 'tb_sewa.nama_pengguna = tb_akun.nama');
+        $builder->where('tb_sewa.id_sewa', $id_sewa);
+        $data_sewa = $builder->get()->getResultArray();
+
+        $data = [
+            'data_sewa' => $data_sewa,
+            'pengguna' => $pengguna
+
+        ];
+
+        return view('sewa/cetak', $data);
+    }
+    public function berhasil()
+    {
+        $id_pengguna = session()->get('id_pengguna');
+
+        $berhasil = $this->db->query("SELECT * FROM tb_sewa ORDER BY id_sewa DESC limit 1")->getResultArray();
+        $pengguna = $this->db->query("SELECT * FROM tb_akun WHERE id_pengguna = '$id_pengguna'")->getResultArray();
+
+        // $id_pengguna = session()->get('id_pengguna');
+
+        // $pengguna = $this->db->query("SELECT * FROM tb_akun WHERE id_pengguna = '$id_pengguna'")->getResultArray();
+
+        // $lastInsertID = $this->db->insertID();
+
+        // $id_sewa = $this->request->getGet('id_sewa');
+        // // Load the Query Builder library
+        // $builder = $this->db->table('tb_sewa');
+        // $builder->select('tb_sewa.*, tb_akun.hp, tb_akun.alamat');
+        // $builder->join('tb_akun', 'tb_sewa.nama_pengguna = tb_akun.nama');
+        // $builder->where('tb_sewa.id_sewa', $id_sewa);
+        // $data_sewa = $builder->get()->getResultArray();
+
+        $data = [
+            'data_sewa' => $berhasil,
+            'pengguna' => $pengguna
+        ];
+
+        return view('sewa/berhasil', $data);
+    }
+
+
 
     ////////////////////////////
 
