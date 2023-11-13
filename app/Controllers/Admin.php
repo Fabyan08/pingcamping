@@ -182,12 +182,12 @@ class Admin extends BaseController
     }
     public function ubah_sewa($id_sewa)
     {
-        $nama_kurir     = $this->request->getPost('nama_kurir');
-
+        $status        = $this->request->getPost('status');
+        // $nama_kurir     = $this->request->getPost('nama_kurir');
 
         $this->db->query("UPDATE tb_sewa
-                            SET nama_kurir = '$nama_kurir',status = 'Selesai'
-                            WHERE id_sewa = '$id_sewa'");
+                            SET status = '$status'
+                            WHERE id_sewa = $id_sewa");
 
         session()->setFlashdata('success', 'Data berhasil diubah');
         return redirect('Admin/data_sewa');

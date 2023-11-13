@@ -99,7 +99,65 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Cash</h5>
+                                        <h6 class="card-subtitle mb-2 text-body-secondary">Langsung Datang ke Kantor</h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">BCA</h5>
+                                        <h6 class="card-subtitle mb-2 text-body-secondary">No Rek: 12345678910</h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Mandiri</h5>
+                                        <h6 class="card-subtitle mb-2 text-body-secondary">No Rek: 12345678910</h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Bank Jatim</h5>
+                                        <h6 class="card-subtitle mb-2 text-body-secondary">No Rek: 12345678910</h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">BRI</h5>
+                                        <h6 class="card-subtitle mb-2 text-body-secondary">No Rek: 12345678910</h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">BSI</h5>
+                                        <h6 class="card-subtitle mb-2 text-body-secondary">No Rek: 12345678910</h6>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+
                             <div class="col-md-4">
                                 <label class="form-label">Metode Pembayaran</label>
                                 <div class="row">
@@ -112,6 +170,15 @@
                                             <option value="BRI">BRI</option>
                                             <option value="BSI">BSI</option>
                                         </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Bukti Pembayaran</label>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="file" name="bukti" required class="form-control">
 
                                     </div>
                                 </div>

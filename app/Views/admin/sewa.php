@@ -72,7 +72,7 @@
                                         <td><?= $value['nama_kurir'] ?></td>
                                         <td>
                                             <button class="btn btn-success" data-toggle="modal" data-target="#ubah_sewa<?= $value['id_sewa'] ?>">
-                                                <i class="bi bi-plus"></i>
+                                                <i class="bi bi-search"></i>
                                             </button>
 
                                         </td>
@@ -85,13 +85,17 @@
 
                                                 <!-- Header Modal -->
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title">Tambah Kurir</h4>
+                                                    <h4 class="modal-title">Detail & Ubah Data</h4>
                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                 </div>
 
                                                 <form action="<?= base_url('Admin/ubah_sewa/' . $value['id_sewa']) ?>" method="post" enctype="multipart/form-data">
                                                     <!-- Isi Modal -->
                                                     <div class="modal-body">
+                                                        <div class="row">
+                                                            <img src="<?= base_url('public/assets/img/bukti/' . $value['bukti']) ?>" style="width: 200px; " alt="">
+                                                            <h6>Bukti Transfer</h6>
+                                                        </div>
                                                         <?= csrf_field(); ?>
 
                                                         <label>Nama Barang</label>
@@ -111,20 +115,35 @@
 
                                                         <label>Hp</label>
                                                         <input type="text" class="form-control" value="<?= $value['hp'] ?>" readonly>
-
                                                         <label>Nama Kurir</label>
-                                                        <select name="nama_kurir" class="form-control">
-                                                            <?php foreach ($kurir as $key => $value2) : ?>
-                                                                <option><?= $value2['nama_kurir'] ?></option>
-                                                            <?php endforeach; ?>
+
+                                                        <input type="text" readonly value="<?= $value['nama_kurir'] ?>" class="form-control">
+                                                        <label>Metode</label>
+
+                                                        <input type="text" readonly value="<?= $value['pembayaran'] ?>" class="form-control">
+
+
+
+                                                        <label for="">Status</label>
+                                                        <select class="form-control" name="status" id="">
+                                                            <?php if ($value['status'] == 'Belum Lunas') {
+                                                                echo '<option value="Belum Lunas">Belum Lunas</option>';
+                                                                echo '<option value="Lunas">Lunas</option>';
+                                                            } else {
+                                                                echo '<option value="Lunas">Lunas</option>';
+                                                                echo '<option value="Belum Lunas">Belum Lunas</option>';
+                                                            } ?>
+
                                                         </select>
+
+
                                                     </div>
 
                                                     <!-- Footer Modal -->
                                                     <div class="modal-footer">
 
-                                                        <button type="sumbit" class="btn btn-info mb-2">
-                                                            Tambah Kurir
+                                                        <button type="submit" class="btn btn-info mb-2">
+                                                            Ubah Data
                                                         </button>
 
                                                     </div>

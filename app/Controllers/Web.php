@@ -61,6 +61,10 @@ class Web extends BaseController
         $nama_pengguna = session()->get('nama');
         $pembayaran = $this->request->getPost('pembayaran');
 
+        $bukti      = $this->request->getFile('bukti');
+        $kasihnamarandom     =   ($bukti->getRandomName());
+        $bukti->move('public/assets/img/bukti', $kasihnamarandom);
+
 
 
         $query = $this->db->query("SELECT * FROM tb_kurir WHERE nama_kurir = '$nama_kurir'")->getResultArray();
@@ -91,10 +95,10 @@ class Web extends BaseController
 
         if ($kurir == null) {
             $this->db->query("INSERT INTO tb_sewa VALUES 
-        ('', '$nama_barang', '$jumlah_barang','$nama_pengguna',' $tanggal_sewa', '$tanggal_kembali', '$nama_kurir','$total_harga','$pembayaran', 'Lunas') ");
+        ('', '$nama_barang', '$jumlah_barang','$nama_pengguna',' $tanggal_sewa', '$tanggal_kembali', '$nama_kurir','$total_harga','$pembayaran', 'Lunas', '$kasihnamarandom') ");
         } else {
             $this->db->query("INSERT INTO tb_sewa VALUES 
-    ('', '$nama_barang', '$jumlah_barang','$nama_pengguna',' $tanggal_sewa', '$tanggal_kembali', '$kurir','$total_harga','$pembayaran', 'Belum Lunas') ");
+    ('', '$nama_barang', '$jumlah_barang','$nama_pengguna',' $tanggal_sewa', '$tanggal_kembali', '$kurir','$total_harga','$pembayaran', 'Belum Lunas', '$kasihnamarandom') ");
         }
 
 
