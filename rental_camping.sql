@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2023 at 06:34 AM
+-- Generation Time: Nov 13, 2023 at 03:47 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -129,15 +129,17 @@ CREATE TABLE `tb_sewa` (
   `nama_kurir` varchar(50) DEFAULT NULL,
   `total_harga` text NOT NULL,
   `pembayaran` varchar(225) NOT NULL,
-  `status` varchar(20) DEFAULT NULL
+  `status` varchar(20) DEFAULT NULL,
+  `bukti` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_sewa`
 --
 
-INSERT INTO `tb_sewa` (`id_sewa`, `nama_barang`, `jumlah_barang`, `nama_pengguna`, `tanggal_sewa`, `tanggal_kembali`, `nama_kurir`, `total_harga`, `pembayaran`, `status`) VALUES
-(66, 'taplak', 3, ' sutiaja', '2023-11-13', '2023-11-15', 'selo', '50000', 'Cash', 'Lunas');
+INSERT INTO `tb_sewa` (`id_sewa`, `nama_barang`, `jumlah_barang`, `nama_pengguna`, `tanggal_sewa`, `tanggal_kembali`, `nama_kurir`, `total_harga`, `pembayaran`, `status`, `bukti`) VALUES
+(66, 'taplak', 3, ' sutiaja', '2023-11-13', '2023-11-15', 'selo', '50000', 'Cash', 'Lunas', ''),
+(67, 'taplak', 3, ' sutiaja', '2023-11-13', '2023-11-15', 'selo', '50000', 'Mandiri', 'Lunas', '1699884356_33066abd2db1997b8900.png');
 
 -- --------------------------------------------------------
 
@@ -236,7 +238,7 @@ ALTER TABLE `tb_kurir`
 -- AUTO_INCREMENT for table `tb_sewa`
 --
 ALTER TABLE `tb_sewa`
-  MODIFY `id_sewa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id_sewa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `tb_ulasan`
