@@ -45,8 +45,8 @@
 
     <section class="pt-1">
         <div class="container">
-            <button type="button" class="btn btn-success mb-2" data-toggle="modal" data-target="#tambah">
-                Tambah Ulasan
+            <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#tambah">
+                Ulasan
             </button>
             <?php if (session()->getFlashdata('success')) { ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -78,7 +78,18 @@
                                             <hr>
 
                                             <div class="accordion-body">
-                                                <p style="">"<?= $dt['ulasan'] ?>"</p>
+                                                <div class="row">
+                                                    <div class="col">
+
+                                                        <p style="">"<?= $dt['ulasan'] ?>"</p>
+                                                    </div>
+                                                    <div class="col">
+                                                        <button class="btn btn-danger" data-toggle="modal" data-target="#hapus_barang<?= $dt['id_ulasan'] ?>">
+                                                            <i class="bi bi-trash-fill"></i>
+                                                        </button>
+
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -95,6 +106,39 @@
 
 </main>
 
+<!-- Hapus -->
+<?php foreach ($ulasan as $key  => $dt) : ?>
+
+    <div class="modal fade" id="hapus_barang<?= $dt['id_ulasan'] ?>">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Hapus Data</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <form action="<?= base_url('Web/hapus_ulasan/' . $dt['id_ulasan']) ?>" method="post" enctype="multipart/form-data">
+                    <!-- Isi Modal -->
+                    <div class="modal-body">
+                        <p>Apakah anda yakin?</p>
+                    </div>
+
+                    <!-- Footer Modal -->
+                    <div class="modal-footer">
+
+                        <button type="submit" class="btn btn-info mb-2">
+                            Hapus Data
+                        </button>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
 
 <!-- MODAL TAMBAH -->
 <div class="modal fade" id="tambah">
@@ -115,17 +159,17 @@
                 </div>
 
                 <!-- Footer Modal -->
-                <div class="modal-footer">
 
-                    <button type="sumbit" class="btn btn-info mb-2">
-                        Tambah Data
-                    </button>
 
-                </div>
-                <?php foreach ($ulasan as $key  => $dt) : ?>
+                <?php foreach ($barang as $key  => $dt) : ?>
                     <input type="hidden" value="<?= $dt['id_barang'] ?>" name="id_barang">
                 <?php endforeach; ?>
+                <div class="modal-footer">
 
+                    <button type="submit" class="btn btn-info mb-2">
+                        Tambah Data
+                    </button>
+                </div>
             </form>
         </div>
     </div>

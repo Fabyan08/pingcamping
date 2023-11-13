@@ -77,7 +77,7 @@
                                 <label for="yaRadio">Ya</label>
                             </div>
                             <div class="col-md-2">
-                                <input value="tidak" name="nokurir" type="radio" name="kurirOption" id="tidakRadio">
+                                <input value="tidak" type="radio" name="kurir" id="tidakRadio">
                                 <label for="tidakRadio">Tidak</label>
                             </div>
                         </div>

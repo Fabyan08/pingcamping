@@ -50,6 +50,7 @@
                                     <th>HP</th>
                                     <th>Alamat</th>
                                     <th>Status</th>
+                                    <th>Pembayaran</th>
                                     <th>Nama Kurir</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -67,6 +68,7 @@
                                         <td><?= $value['hp'] ?></td>
                                         <td><?= $value['alamat'] ?></td>
                                         <td><?= $value['status'] ?></td>
+                                        <td><?= $value['pembayaran'] ?></td>
                                         <td><?= $value['nama_kurir'] ?></td>
                                         <td>
                                             <button class="btn btn-success" data-toggle="modal" data-target="#ubah_sewa<?= $value['id_sewa'] ?>">

@@ -7,7 +7,7 @@
 <div class="site-section">
     <div class="container">
         <div class="row justify-content-center mt-20">
-            <div class="row mb-2 mt-40"  style="margin-top: 50px;">
+            <div class="row mb-2 mt-40" style="margin-top: 50px;">
                 <div class="col-lg-12">
                     <h2 class="fw-bold text-center">RIWAYAT PEMESANAN</h2>
                 </div>

@@ -143,12 +143,33 @@ class Admin extends BaseController
         session()->setFlashdata('gagal', 'Data berhasil Dihapus');
         return redirect('Admin/kurir');
     }
+    //////////////////////////////////////////////////////
+    public function ulasan()
+    {
+        $ulasan = $this->db->query("SELECT * FROM tb_ulasan,tb_barang,tb_akun WHERE tb_ulasan.id_pengguna = tb_akun.id_pengguna AND tb_ulasan.id_barang = tb_barang.id_barang")->getResultArray();
+
+        $data = [
+            'ulasan' => $ulasan,
+        ];
+        return view('admin/ulasan', $data);
+    }
+    public function hapus_ulasan($id_ulasan)
+    {
+        $ulasan = $this->db->query("DELETE FROM tb_ulasan WHERE id_ulasan = $id_ulasan");
+        session()->setFlashdata('gagal', 'Data berhasil Dihapus');
+        return redirect('Admin/ulasan');
+    }
+
+
+
+
+
 
     /////////////////////////////////////////////////////////////
 
     public function data_sewa()
     {
-        $data_sewa = $this->db->query("SELECT tb_sewa.*, tb_akun.hp, tb_akun.alamat FROM tb_sewa join tb_akun on tb_sewa.nama_pengguna = tb_akun.nama_pengguna;")->getResultArray();
+        $data_sewa = $this->db->query("SELECT tb_sewa.*, tb_akun.hp, tb_akun.alamat FROM tb_sewa join tb_akun on tb_sewa.nama_pengguna = tb_akun.nama;")->getResultArray();
 
         $kurir = $this->db->query("SELECT * FROM tb_kurir")->getResultArray();
 

@@ -40,6 +40,7 @@
 
                     <!-- Submit button -->
                     <button type="submit" class="btn btn-primary btn-block mb-4" style="width: 100%;">Log in</button>
+                    <h6 class="text-center">Belum Memiliki Akun? <a href="<?= base_url('Login/register') ?>">Sign In</a></h6>
                 </form>
             </div>
         </div>

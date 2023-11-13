@@ -51,6 +51,14 @@
                         <div class="invalid-feedback">Tidak Boleh Kosong</div>
                     </div>
 
+                    <div class="form-outline mb-4">
+                        <label class="form-label">Foto KTP</label>
+                        <input type="file" class="form-control" required name="foto_ktp">
+                        <div class="valid-feedback">OK</div>
+                        <div class="invalid-feedback">Tidak Boleh Kosong</div>
+                    </div>
+
+
 
                     <!-- Submit button -->
                     <button type="submit" class="btn btn-primary btn-block mb-4" style="width: 100%;">Create Account</button>

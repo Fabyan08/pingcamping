@@ -45,8 +45,7 @@
                                     <th>Nama member</th>
                                     <th>Hp (WA)</th>
                                     <th>Alamat</th>
-                                    <th>Username</th>
-                                    <th>Password</th>
+                                    <th>Profil</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -58,8 +57,7 @@
                                         <td><?= $value['nama'] ?></td>
                                         <td><?= $value['hp'] ?></td>
                                         <td><?= $value['alamat'] ?></td>
-                                        <td><?= $value['username'] ?></td>
-                                        <td><?= $value['password'] ?></td>
+                                       <td><img src="<?= base_url('public/assets/img/auth/' . $value['profil']) ?>" style="width: 50px;" alt=""></td>
                                         <td>
                                             <button class="btn btn-success" data-toggle="modal" data-target="#ubah_member<?= $value['id_pengguna'] ?>">
                                                 <i class="bi bi-pencil-fill"></i>

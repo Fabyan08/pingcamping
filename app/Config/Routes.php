@@ -15,6 +15,8 @@ $routes->group("Web", function ($routes) {
     $routes->post('proses_sewa', 'Web::proses_sewa');
     $routes->get('berhasil', 'Web::berhasil');
 
+    $routes->post('hapus_ulasan/(:any)', 'Web::hapus_ulasan/$1');
+
     $routes->get('profil', 'Web::profil');
     $routes->post('ubah_profil', 'Web::ubah_profil');
     $routes->get('profil_home', 'Web::profil_home');
@@ -55,6 +57,10 @@ $routes->group("Admin", function ($routes) {
 
     $routes->get('member', 'Admin::member');
     $routes->post('hapus_member/(:any)', 'Admin::hapus_member/$1');
+    $routes->post('ubah_member/(:any)', 'Admin::ubah_member/$1');
+
+    $routes->get('ulasan', 'Admin::ulasan');
+    $routes->post('hapus_ulasan/(:any)', 'Admin::hapus_ulasan/$1');
     $routes->post('ubah_member/(:any)', 'Admin::ubah_member/$1');
 
     $routes->get('kurir', 'Admin::kurir');

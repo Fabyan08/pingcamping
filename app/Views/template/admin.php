@@ -40,6 +40,9 @@
                     <li>
                         <a href="<?= base_url('Admin/kurir')  ?>">Kurir</a>
                     </li>
+                    <li>
+                        <a href="<?= base_url('Admin/ulasan')  ?>">Ulasan</a>
+                    </li>
 
                 </ul>
 

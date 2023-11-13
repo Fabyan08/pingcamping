@@ -56,6 +56,7 @@ class Web extends BaseController
         $tanggal_sewa = $this->request->getPost('tanggal_sewa');
         $nama_kurir = $this->request->getPost('nama_kurir');
         $jumlah_barang = $this->request->getPost('jumlah_barang');
+        $kurir = $this->request->getPost('kurir');
 
         $nama_pengguna = session()->get('nama');
         $pembayaran = $this->request->getPost('pembayaran');
@@ -76,8 +77,6 @@ class Web extends BaseController
         }
 
 
-
-
         $barang = $this->db->query("SELECT * FROM tb_barang where nama_barang = '$nama_barang'")->getResultArray();
 
         foreach ($barang as $value) {
@@ -90,8 +89,14 @@ class Web extends BaseController
 
         $total_harga = $harga_sewa * $lama_sewa + $harga_kurir;
 
-        $this->db->query("INSERT INTO tb_sewa VALUES 
+        if ($kurir == null) {
+            $this->db->query("INSERT INTO tb_sewa VALUES 
         ('', '$nama_barang', '$jumlah_barang','$nama_pengguna',' $tanggal_sewa', '$tanggal_kembali', '$nama_kurir','$total_harga','$pembayaran', 'Lunas') ");
+        } else {
+            $this->db->query("INSERT INTO tb_sewa VALUES 
+    ('', '$nama_barang', '$jumlah_barang','$nama_pengguna',' $tanggal_sewa', '$tanggal_kembali', '$kurir','$total_harga','$pembayaran', 'Belum Lunas') ");
+        }
+
 
 
         session()->setFlashdata('success', 'Terimakasih pesanan anda sedang kami proses');
@@ -118,8 +123,18 @@ class Web extends BaseController
         $alamat      = $this->request->getPost('alamat');
 
 
+        $profil      = $this->request->getFile('profil');
+        $kasihnamarandom1     =   ($profil->getRandomName());
+        $profil->move('public/assets/img/auth', $kasihnamarandom1);
+
+        $foto_ktp             = $this->request->getFile('foto_ktp');
+        $kasihnamarandom2     =   ($foto_ktp->getRandomName());
+        $foto_ktp->move('public/assets/img/auth', $kasihnamarandom2);
+
+
+
         $this->db->query("UPDATE tb_akun
-                            SET nama = '$nama', hp = '$hp', alamat ='$alamat'
+                            SET nama = '$nama', hp = '$hp', alamat ='$alamat',  foto_ktp = '$kasihnamarandom2', profil = '$kasihnamarandom1'
                             WHERE id_pengguna = '$id_pengguna'");
 
         session()->setFlashdata('success', 'Data berhasil diubah');
@@ -225,11 +240,32 @@ class Web extends BaseController
         $ulasan           = $this->request->getPost('ulasan');
         $id_barang        = $this->request->getPost('id_barang');
         $id_pengguna      = session()->get('id_pengguna');
+        $tanggal = date('Y-m-d');
 
 
-        $this->db->query("INSERT INTO tb_ulasan VALUES ('', '$id_pengguna', '$id_barang','$ulasan') ");
+        $this->db->query("INSERT INTO tb_ulasan VALUES ('', '$id_pengguna', '$id_barang','$ulasan', '$tanggal') ");
+
+        $barang = $this->db->query("SELECT * FROM tb_barang WHERE tb_barang.id_barang = '$id_barang'")->getResultArray();
+
+        $ulasan = $this->db->query(" SELECT * FROM tb_ulasan,tb_barang,tb_akun WHERE tb_ulasan.id_pengguna = tb_akun.id_pengguna AND tb_ulasan.id_barang = tb_barang.id_barang AND tb_akun.id_pengguna = '$id_pengguna' AND tb_ulasan.id_barang = '$id_barang'")->getResultArray();
+        // $brg =  $this->db->query("INSERT INTO tb_ulasan VALUES ('', '$id_pengguna', '$id_barang','$ulasan') ")->getResultArray();
 
         session()->setFlashdata('success', 'Data berhasil ditambahkan');
+
+        $data = [
+            'barang' => $barang,
+            'ulasan' => $ulasan
+        ];
+
+        // return view('sewa/detail_barang', $data);
+
         return redirect()->back();
+    }
+    public function hapus_ulasan($id_ulasan)
+    {
+        $this->db->query("DELETE FROM tb_ulasan WHERE id_ulasan = $id_ulasan");
+        session()->setFlashdata('gagal', 'Data berhasil Dihapus');
+        return redirect()->back();
+        // return redirect('Web/profil_detail_barang');
     }
 }

@@ -8,7 +8,13 @@
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
         <h1>Welcome to <span>PingCamping</span></h1>
         <h2><b>Temukan berbagai peralatan camping untuk petualangan outdoor anda menuju <br> pengalaman yang luar biasa</b></h2>
-    </div>
+       
+
+        <div class="input-group mb-3 col-md-3">
+            <input type="text" class="form-control"  aria-describedby="basic-addon2">
+            <span class="input-group-text" id="basic-addon2"><i class="fa fa-search"></i></span>
+        </div>
+
 </section><!-- End Hero -->
 
 

@@ -28,9 +28,12 @@ class Login extends BaseController
         $nama     = $this->request->getPost('nama');
         $hp       = $this->request->getPost('hp');
         $alamat   = $this->request->getPost('alamat');
+        $foto_ktp             = $this->request->getFile('foto_ktp');
 
+        $kasihnamarandom     =   ($foto_ktp->getRandomName());
+        $foto_ktp->move('public/assets/img/auth', $kasihnamarandom);
 
-        $this->db->query("INSERT INTO tb_akun (id_pengguna, username, password, nama, hp, alamat ) VALUES ('', '$username', '$password',' $nama', '$hp', '$alamat') ");
+        $this->db->query("INSERT INTO tb_akun (id_pengguna, username, password, nama, hp, alamat, foto_ktp,profil ) VALUES ('', '$username', '$password',' $nama', '$hp', '$alamat','$kasihnamarandom','user.png') ");
 
 
         return view('login/login');
@@ -56,7 +59,6 @@ class Login extends BaseController
             foreach ($dataUser as $value) {
                 $nama = $value['nama'];
                 $id_pengguna = $value['id_pengguna'];
-
             }
             session()->set([
                 'nama' => $nama,
