@@ -11,6 +11,9 @@ $routes->group("Web", function ($routes) {
     $routes->get('/', 'Web::index');
     $routes->get('detail_barang/(:any)', 'Web::detail_barang/$1');
 
+
+    $routes->post('search', 'Web::search');
+
     $routes->get('sewa', 'Web::sewa');
     $routes->post('proses_sewa', 'Web::proses_sewa');
     $routes->get('berhasil', 'Web::berhasil');

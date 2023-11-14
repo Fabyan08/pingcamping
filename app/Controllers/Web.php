@@ -65,6 +65,103 @@ class Web extends BaseController
         $kasihnamarandom     =   ($bukti->getRandomName());
         $bukti->move('public/assets/img/bukti', $kasihnamarandom);
 
+        // Ambil Data Barang
+        $nama_barang_2 =  $this->request->getPost('nama_barang_2');
+        $jumlah_barang_2 =  $this->request->getPost('jumlah_barang_2');
+        $nama_barang_3 =  $this->request->getPost('nama_barang_3');
+        $jumlah_barang_3 =  $this->request->getPost('jumlah_barang_3');
+        $nama_barang_4 = $this->request->getPost('nama_barang_4');
+        $jumlah_barang_4 = $this->request->getPost('jumlah_barang_4');
+        $nama_barang_5 = $this->request->getPost('nama_barang_5');
+        $jumlah_barang_5 = $this->request->getPost('jumlah_barang_5');
+        $nama_barang_6 = $this->request->getPost('nama_barang_6');
+        $jumlah_barang_6 = $this->request->getPost('jumlah_barang_6');
+        $nama_barang_7 = $this->request->getPost('nama_barang_7');
+        $jumlah_barang_7 = $this->request->getPost('jumlah_barang_7');
+        $nama_barang_8 = $this->request->getPost('nama_barang_8');
+        $jumlah_barang_8 = $this->request->getPost('jumlah_barang_8');
+        $nama_barang_9 = $this->request->getPost('nama_barang_9');
+        $jumlah_barang_9 = $this->request->getPost('jumlah_barang_9');
+        $nama_barang_10 = $this->request->getPost('nama_barang_10');
+        $jumlah_barang_10 = $this->request->getPost('jumlah_barang_10');
+
+
+
+        // Stok 1
+        $ambil_stok_1 = $this->db->query("SELECT * FROM tb_barang where nama_barang = '$nama_barang'")->getResultArray();
+
+        foreach ($ambil_stok_1 as $value) {
+            $stok1 = $value['stok'];
+            $hasil1 = $stok1 - $jumlah_barang;
+        }
+
+        // Stok 2
+        $ambil_stok_2 = $this->db->query("SELECT * FROM tb_barang where nama_barang = '$nama_barang_2'")->getResultArray();
+        foreach ($ambil_stok_2 as $value) {
+            $stok2 = $value['stok'];
+            $kurang2 = $stok2 - $jumlah_barang_2;
+        }
+
+        // Stok 3
+        $ambil_stok_3 = $this->db->query("SELECT * FROM tb_barang where nama_barang = '$nama_barang_3'")->getResultArray();
+        foreach ($ambil_stok_3 as $value) {
+            $stok3 = $value['stok'];
+            $kurang3 = $stok3 - $jumlah_barang_3;
+        }
+
+
+        // Stok 4
+        $ambil_stok_4 = $this->db->query("SELECT * FROM tb_barang where nama_barang = '$nama_barang_4'")->getResultArray();
+        foreach ($ambil_stok_4 as $value) {
+            $stok4 = $value['stok'];
+            $kurang4 = $stok4 - $jumlah_barang_4;
+        }
+
+        // Stok 5
+        $ambil_stok_5 = $this->db->query("SELECT * FROM tb_barang where nama_barang = '$nama_barang_5'")->getResultArray();
+        foreach ($ambil_stok_5 as $value) {
+            $stok5 = $value['stok'];
+            $kurang5 = $stok5 - $jumlah_barang_5;
+        }
+
+        // Stok 6
+        $ambil_stok_6 = $this->db->query("SELECT * FROM tb_barang where nama_barang = '$nama_barang_6'")->getResultArray();
+        foreach ($ambil_stok_6 as $value) {
+
+            $stok6 = $value['stok'];
+            $kurang6 = $stok6 - $jumlah_barang_6;
+        }
+
+        // Stok 7
+        $ambil_stok_7 = $this->db->query("SELECT * FROM tb_barang where nama_barang = '$nama_barang_7'")->getResultArray();
+        foreach ($ambil_stok_7 as $value) {
+
+            $stok7 = $value['stok'];
+            $kurang7 = $stok7 - $jumlah_barang_7;
+        }
+
+        // Stok 8
+        $ambil_stok_8 = $this->db->query("SELECT * FROM tb_barang where nama_barang = '$nama_barang_8'")->getResultArray();
+        foreach ($ambil_stok_8 as $value) {
+            $stok8 = $value['stok'];
+            $kurang8 = $stok8 - $jumlah_barang_8;
+        }
+
+        // Stok 9
+        $ambil_stok_9 = $this->db->query("SELECT * FROM tb_barang where nama_barang = '$nama_barang_9'")->getResultArray();
+        foreach ($ambil_stok_9 as $value) {
+            $stok9 = $value['stok'];
+            $kurang9 = $stok9 - $jumlah_barang_9;
+        }
+
+        // Stok 10
+        $ambil_stok_10 = $this->db->query("SELECT * FROM tb_barang where nama_barang = '$nama_barang_10'")->getResultArray();
+        foreach ($ambil_stok_10 as $value) {
+            $stok10 = $value['stok'];
+            $kurang10 = $stok10 - $jumlah_barang_10;
+        }
+
+
 
 
         $query = $this->db->query("SELECT * FROM tb_kurir WHERE nama_kurir = '$nama_kurir'")->getResultArray();
@@ -95,11 +192,98 @@ class Web extends BaseController
 
         if ($kurir == null) {
             $this->db->query("INSERT INTO tb_sewa VALUES 
-        ('', '$nama_barang', '$jumlah_barang','$nama_pengguna',' $tanggal_sewa', '$tanggal_kembali', '$nama_kurir','$total_harga','$pembayaran', 'Lunas', '$kasihnamarandom') ");
+                ('', '$nama_barang', '$jumlah_barang','$nama_barang_2', '$jumlah_barang_2','$nama_barang_3', '$jumlah_barang_3' , '$nama_barang_4', '$jumlah_barang_4', '$nama_barang_5', '$jumlah_barang_5', '$nama_barang_6', '$jumlah_barang_6', '$nama_barang_7', '$jumlah_barang_7', '$nama_barang_8', '$jumlah_barang_8', '$nama_barang_9', '$jumlah_barang_9', '$nama_barang_10', '$jumlah_barang_10' ,'$nama_pengguna',' $tanggal_sewa', '$tanggal_kembali', '$nama_kurir','$total_harga','$pembayaran', 'Lunas', '$kasihnamarandom') ");
+
+            $this->db->query("UPDATE tb_barang SET stok = $hasil1 WHERE nama_barang = '$nama_barang'");
+            $this->db->query("UPDATE tb_barang SET stok = $kurang2 WHERE nama_barang = '$nama_barang_2'");
+            $this->db->query("UPDATE tb_barang SET stok = $kurang3 WHERE nama_barang = '$nama_barang_3'");
+            if (empty($kurang4)) {
+                $kurang4 = 0;
+            } else {
+                $this->db->query("UPDATE tb_barang SET stok = $kurang4 WHERE nama_barang = '$nama_barang_4'");
+            }
+            if (empty($kurang5)) {
+                $kurang5 = 0;
+            } else {
+                $this->db->query("UPDATE tb_barang SET stok = $kurang5 WHERE nama_barang = '$nama_barang_4'");
+            }
+            if (empty($kurang6)) {
+                $kurang6 = 0;
+            } else {
+                $this->db->query("UPDATE tb_barang SET stok = $kurang6 WHERE nama_barang = '$nama_barang_6'");
+            }
+            if (empty($kurang7)) {
+                $kurang7 = 0;
+            } else {
+                $this->db->query("UPDATE tb_barang SET stok = $kurang7 WHERE nama_barang = '$nama_barang_6'");
+            }
+            if (empty($kurang8)) {
+                $kurang8 = 0;
+            } else {
+                $this->db->query("UPDATE tb_barang SET stok = $kurang8 WHERE nama_barang = '$nama_barang_6'");
+            }
+            if (empty($kurang9)) {
+                $kurang9 = 0;
+            } else {
+                $this->db->query("UPDATE tb_barang SET stok = $kurang9 WHERE nama_barang = '$nama_barang_6'");
+            }
+            if (empty($kurang10)) {
+                $kurang10 = 0;
+            } else {
+                $this->db->query("UPDATE tb_barang SET stok = $kurang10 WHERE nama_barang = '$nama_barang_6'");
+            }
         } else {
             $this->db->query("INSERT INTO tb_sewa VALUES 
-    ('', '$nama_barang', '$jumlah_barang','$nama_pengguna',' $tanggal_sewa', '$tanggal_kembali', '$kurir','$total_harga','$pembayaran', 'Belum Lunas', '$kasihnamarandom') ");
+                ('', '$nama_barang', '$jumlah_barang','$nama_pengguna','$nama_barang_2', '$jumlah_barang_2','$nama_barang_3', '$jumlah_barang_3' , '$nama_barang_4', '$jumlah_barang_4', '$nama_barang_5', '$jumlah_barang_5', '$nama_barang_6', '$jumlah_barang_6', '$nama_barang_7', '$jumlah_barang_7', '$nama_barang_8', '$jumlah_barang_8', '$nama_barang_9', '$jumlah_barang_9', '$nama_barang_10', '$jumlah_barang_10' ,' $tanggal_sewa', '$tanggal_kembali', '$kurir','$total_harga','$pembayaran', 'Belum Lunas', '$kasihnamarandom') ");
+
+            if (empty($kurang4)) {
+                $kurang4 = 0;
+            } else {
+                $this->db->query("UPDATE tb_barang SET stok = $kurang4 WHERE nama_barang = '$nama_barang_4'");
+            }
+            if (empty($kurang5)) {
+                $kurang5 = 0;
+            } else {
+                $this->db->query("UPDATE tb_barang SET stok = $kurang5 WHERE nama_barang = '$nama_barang_4'");
+            }
+            if (empty($kurang6)) {
+                $kurang6 = 0;
+            } else {
+                $this->db->query("UPDATE tb_barang SET stok = $kurang6 WHERE nama_barang = '$nama_barang_6'");
+            }
+            if (empty($kurang7)) {
+                $kurang7 = 0;
+            } else {
+                $this->db->query("UPDATE tb_barang SET stok = $kurang7 WHERE nama_barang = '$nama_barang_6'");
+            }
+            if (empty($kurang8)) {
+                $kurang8 = 0;
+            } else {
+                $this->db->query("UPDATE tb_barang SET stok = $kurang8 WHERE nama_barang = '$nama_barang_6'");
+            }
+            if (empty($kurang9)) {
+                $kurang9 = 0;
+            } else {
+                $this->db->query("UPDATE tb_barang SET stok = $kurang9 WHERE nama_barang = '$nama_barang_6'");
+            }
+            if (empty($kurang10)) {
+                $kurang10 = 0;
+            } else {
+                $this->db->query("UPDATE tb_barang SET stok = $kurang10 WHERE nama_barang = '$nama_barang_6'");
+            }
+
+            // $this->db->query("UPDATE tb_barang SET stok = $hasil1 WHERE nama_barang = '$nama_barang'");
+            // $this->db->query("UPDATE tb_barang SET stok = $kurang2 WHERE nama_barang = '$nama_barang_2'");
+            // $this->db->query("UPDATE tb_barang SET stok = $kurang3 WHERE nama_barang = '$nama_barang_3'");
+            // $this->db->query("UPDATE tb_barang SET stok = $kurang4 WHERE nama_barang = '$nama_barang_4'");
+            // $this->db->query("UPDATE tb_barang SET stok = $kurang5 WHERE nama_barang = '$nama_barang_5'");
+            // $this->db->query("UPDATE tb_barang SET stok = $kurang6 WHERE nama_barang = '$nama_barang_6'");
+            // $this->db->query("UPDATE tb_barang SET stok = $kurang7 WHERE nama_barang = '$nama_barang_7'");
+            // $this->db->query("UPDATE tb_barang SET stok = $kurang8 WHERE nama_barang = '$nama_barang_8'");
+            // $this->db->query("UPDATE tb_barang SET stok = $kurang9 WHERE nama_barang = '$nama_barang_9'");
+            // $this->db->query("UPDATE tb_barang SET stok = $kurang10 WHERE nama_barang = '$nama_barang_10'");
         }
+
 
 
 
@@ -126,23 +310,55 @@ class Web extends BaseController
         $hp          = $this->request->getPost('hp');
         $alamat      = $this->request->getPost('alamat');
 
-
         $profil      = $this->request->getFile('profil');
-        $kasihnamarandom1     =   ($profil->getRandomName());
-        $profil->move('public/assets/img/auth', $kasihnamarandom1);
+        $foto_ktp    = $this->request->getFile('foto_ktp');
 
-        $foto_ktp             = $this->request->getFile('foto_ktp');
-        $kasihnamarandom2     =   ($foto_ktp->getRandomName());
-        $foto_ktp->move('public/assets/img/auth', $kasihnamarandom2);
+        // Periksa apakah file profil diunggah dan valid
+        if ($profil->isValid() && !$profil->hasMoved()) {
+            $kasihnamarandom1 = $profil->getRandomName();
+            $profil->move('public/assets/img/auth', $kasihnamarandom1);
+        }
 
+        // Periksa apakah file foto_ktp diunggah dan valid
+        if ($foto_ktp->isValid() && !$foto_ktp->hasMoved()) {
+            $kasihnamarandom2 = $foto_ktp->getRandomName();
+            $foto_ktp->move('public/assets/img/auth', $kasihnamarandom2);
+        }
 
-
-        $this->db->query("UPDATE tb_akun
-                            SET nama = '$nama', hp = '$hp', alamat ='$alamat',  foto_ktp = '$kasihnamarandom2', profil = '$kasihnamarandom1'
+        // Lakukan pembaruan berdasarkan kondisi
+        if (isset($kasihnamarandom1) && isset($kasihnamarandom2)) {
+            $this->db->query("UPDATE tb_akun
+                            SET nama = '$nama', hp = '$hp', alamat ='$alamat', profil = '$kasihnamarandom1', foto_ktp = '$kasihnamarandom2'
                             WHERE id_pengguna = '$id_pengguna'");
+        } elseif (isset($kasihnamarandom1)) {
+            $this->db->query("UPDATE tb_akun
+                            SET nama = '$nama', hp = '$hp', alamat ='$alamat', profil = '$kasihnamarandom1'
+                            WHERE id_pengguna = '$id_pengguna'");
+        } elseif (isset($kasihnamarandom2)) {
+            $this->db->query("UPDATE tb_akun
+                            SET nama = '$nama', hp = '$hp', alamat ='$alamat', foto_ktp = '$kasihnamarandom2'
+                            WHERE id_pengguna = '$id_pengguna'");
+        } else {
+            // Tidak ada file yang diunggah, lakukan pembaruan tanpa file
+            $this->db->query("UPDATE tb_akun
+                            SET nama = '$nama', hp = '$hp', alamat ='$alamat'
+                            WHERE id_pengguna = '$id_pengguna'");
+        }
 
         session()->setFlashdata('success', 'Data berhasil diubah');
         return redirect('Web/profil');
+    }
+
+    public function Search()
+    {
+        $keyword = $this->request->getPost('keyword');
+        $data_search = $this->db->query("SELECT * FROM tb_barang WHERE nama_barang LIKE '%$keyword%'")->getResultArray();
+
+        $data = [
+            'data' => $data_search
+        ];
+
+        return view('sewa/home', $data);
     }
 
     public function riwayat()

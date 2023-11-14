@@ -56,50 +56,25 @@
                     </button>
                 </div>
             <?php } ?>
-            <table id="table_id" class="table is-narrow display stripe cell-border bordered" style="border: 1px;">
+
+            <table class="table">
                 <thead>
                     <tr>
-                        <th style="text-align: center;">Ulasan</th>
+                        <th scope="col">No</th>
+                        <th scope="col">User</th>
+                        <th scope="col">Ulasan</th>
                     </tr>
                 </thead>
                 <tbody>
-
                     <?php foreach ($ulasan as $key  => $dt) : ?>
                         <tr>
-                            <td>
-                                <div class="grb-accordion">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a<?= $dt['id_ulasan'] ?>" aria-expanded="false">
-                                                <p style="font-weight: bold;"><?= $dt['nama'] ?></p>
-                                            </button>
-                                        </h2>
-                                        <div id="a<?= $dt['id_ulasan'] ?>" class="accordion-collapse collapse">
-                                            <hr>
-
-                                            <div class="accordion-body">
-                                                <div class="row">
-                                                    <div class="col">
-
-                                                        <p style="">"<?= $dt['ulasan'] ?>"</p>
-                                                    </div>
-                                                    <div class="col">
-                                                        <button class="btn btn-danger" data-toggle="modal" data-target="#hapus_barang<?= $dt['id_ulasan'] ?>">
-                                                            <i class="bi bi-trash-fill"></i>
-                                                        </button>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
+                            <th scope="row"><?= $key + 1 ?></th>
+                            <td><?= $dt['nama'] ?></td>
+                            <td><?= $dt['ulasan'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
-
             <hr>
         </div>
     </section>
