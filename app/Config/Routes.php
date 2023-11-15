@@ -18,6 +18,9 @@ $routes->group("Web", function ($routes) {
     $routes->post('proses_sewa', 'Web::proses_sewa');
     $routes->get('berhasil', 'Web::berhasil');
 
+    $routes->post('proses_pembayaran', 'Web::proses_pembayaran');
+    $routes->get('pembayaran', 'Web::pembayaran');
+
     $routes->post('hapus_ulasan/(:any)', 'Web::hapus_ulasan/$1');
 
     $routes->get('profil', 'Web::profil');

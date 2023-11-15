@@ -100,20 +100,34 @@
                         </div>
                         <div class="row">
                             <div class="col-md-2">
-                                <input type="radio" name="kurirOption" id="yaRadio">
+                                <input type="radio" name="rad" id="yaRadio" value="ya">
                                 <label for="yaRadio">Ya</label>
                             </div>
                             <div class="col-md-2">
-                                <input value="tidak" type="radio" name="kurir" id="tidakRadio">
+                                <input value="tidak" type="radio" name="rad" id="tidakRadio" value="tidak">
                                 <label for="tidakRadio">Tidak</label>
                             </div>
                         </div>
+
+
+                        <!-- <div class="row">
+                            <div class="col-md-2">
+                                <input type="radio" name="kurir" value="ya" id="yaRadio">
+                                <label for="yaRadio">Ya</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" name="kurir" value="tidak" id="tidakRadio">
+                                <label for="tidakRadio">Tidak</label>
+                            </div>
+                        </div> -->
+
                         <div class="row" id="selectKurirRow" style="display: none;">
                             <div class="row">
                                 <div class="col-md-6">
                                     <!-- <input type="radio" name="kurirOption" id="dlm"> -->
                                     <!-- <label for="dlm">Dalam Kota</label> -->
                                     <select name="nama_kurir" class="form-control">
+                                        <option value=""></option>
                                         <?php foreach ($kurir as $key => $value) : ?>
                                             <option value=<?= $value['nama_kurir'] ?>><?= $value['nama_kurir'] . ' - ' . $value['area'] ?></option>
                                         <?php endforeach; ?>
@@ -126,91 +140,7 @@
                             </div>
                         </div>
 
-                        <div class="row" style="margin-top: 20px;">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Cash</h5>
-                                        <h6 class="card-subtitle mb-2 text-body-secondary">Langsung Datang ke Kantor</h6>
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">BCA</h5>
-                                        <h6 class="card-subtitle mb-2 text-body-secondary">No Rek: 12345678910</h6>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Mandiri</h5>
-                                        <h6 class="card-subtitle mb-2 text-body-secondary">No Rek: 12345678910</h6>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Bank Jatim</h5>
-                                        <h6 class="card-subtitle mb-2 text-body-secondary">No Rek: 12345678910</h6>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">BRI</h5>
-                                        <h6 class="card-subtitle mb-2 text-body-secondary">No Rek: 12345678910</h6>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">BSI</h5>
-                                        <h6 class="card-subtitle mb-2 text-body-secondary">No Rek: 12345678910</h6>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row" style="margin-top: 20px;">
-
-                            <div class="col-md-4">
-                                <label class="form-label">Metode Pembayaran</label>
-                                <div class="row">
-                                    <div class="col">
-                                        <select name="pembayaran" id="pembayaran" class="form-control">
-                                            <option value="Cash">Cash</option>
-                                            <option value="BCA">BCA</option>
-                                            <option value="Mandiri">Mandiri</option>
-                                            <option value="Bank Jatim">Bank Jatim</option>
-                                            <option value="BRI">BRI</option>
-                                            <option value="BSI">BSI</option>
-                                        </select>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label">Bukti Pembayaran</label>
-                                <div class="row">
-                                    <div class="col">
-                                        <input type="file" name="bukti" required class="form-control">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <script>
                             var yaRadio = document.getElementById("yaRadio");

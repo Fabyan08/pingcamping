@@ -44,7 +44,7 @@
                                 <div class="row">
                                     <div class="col-md-9">
                                         <h6><?= $value['nama_barang'] ?></h6>
-                                        <h6>Metode Pembayaran Transfer <?= $value['pembayaran'] ?></h6>
+                                        <h6>Metode Pembayaran <?= $value['pembayaran'] ?></h6>
                                     </div>
                                     <div class="col-md-3">
                                         <h6><?= 'Rp ' . number_format($value['total_harga'], 0, ',', '.'); ?></h6>

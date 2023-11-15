@@ -27,7 +27,7 @@
                                         <h6>Nama Barang</h6>
                                     </div>
                                     <div class="col">
-                                        <p>: <?= $value['nama_barang']; ?></p>
+                                        <p>: <?= $value['nama_barang'] . ', ' . $value['barang2'] . ', ' . $value['barang3'] . ', ' . $value['barang4'] . ', ' . $value['barang5'] . ', ' . $value['barang6'] . ', ' . $value['barang7'] . ', ' . $value['barang8'] . ', ' . $value['barang9'] . ', ' . $value['barang10']; ?></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -35,8 +35,8 @@
                                         <h6>Nama Penyewa</h6>
                                     </div>
                                     <div class="col">
-                                        <?php foreach($pengguna as $key => $pgn) : ?>
-                                        <p>: <?= $pgn['nama']; ?></p>
+                                        <?php foreach ($pengguna as $key => $pgn) : ?>
+                                            <p>: <?= $pgn['nama']; ?></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="col">
                                         <p>: <?= $pgn['hp']; ?></p>
-                                        <?php endforeach; ?>
+                                    <?php endforeach; ?>
                                     </div>
                                 </div>
 
@@ -58,6 +58,8 @@
                                         <p>: <?= $value['tanggal_sewa'] . ' - ' . $value['tanggal_kembali']; ?></p>
                                     </div>
                                 </div>
+
+
                                 <div class="row">
                                     <div class="col">
                                         <h6>Jenis Pembayaran</h6>
@@ -72,7 +74,18 @@
                                         <h6>Total Harga</h6>
                                     </div>
                                     <div class="col">
-                                        <p>: <?= $value['total_harga']; ?></p>
+                                        <p>: Rp <?= number_format($value['total_harga'], 0, ',', '.'); ?></p>
+                                    </div>
+                                </div>
+                                <h6>Bukti Pembayaran</h6>
+                                <div class="row">
+                                    <div class="col">
+                                        <?php if ($value['bukti'] == 'bayar cash') { ?>
+                                            <p>Silahkan Datang ke Kantor untuk Melakukan Pembayaran</p>
+                                        <?php } else { ?>
+
+                                            <img src="<?= base_url('public/assets/img/bukti/' . $value['bukti']); ?>" alt="bukti" width="300px">
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-end">
