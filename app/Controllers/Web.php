@@ -26,7 +26,7 @@ class Web extends BaseController
     {
         $barang = $this->db->query("SELECT * FROM tb_barang where id_barang = $id_barang")->getResultArray();
 
-        $ulasan = $this->db->query("SELECT tb_ulasan.*, tb_akun.nama FROM tb_ulasan join tb_akun on tb_akun.id_pengguna = tb_ulasan.id_pengguna where tb_ulasan.id_barang = $id_barang")->getResultArray();
+        $ulasan = $this->db->query("SELECT tb_ulasan.*, tb_akun.nama, tb_akun.profil FROM tb_ulasan join tb_akun on tb_akun.id_pengguna = tb_ulasan.id_pengguna where tb_ulasan.id_barang = $id_barang")->getResultArray();
 
         $data = [
             'barang' => $barang,
@@ -92,9 +92,74 @@ class Web extends BaseController
         $nama_barang_10 = $this->request->getPost('nama_barang_10');
         $jumlah_barang_10 = $this->request->getPost('jumlah_barang_10');
 
+        // if (empty($nama_barang_2) && empty($jumlah_barang_2)) {
+        //     $nama_barang_2 = '';
+        //     $jumlah_barang_2 = '';
+        // } else {
+        //     $nama_barang_2 = $nama_barang_2;
+        //     $jumlah_barang_2 = $jumlah_barang_2;
+        // }
+
+        // if (empty($nama_barang_3) && empty($jumlah_barang_3)) {
+        //     $nama_barang_3 = '';
+        //     $jumlah_barang_3 = '';
+        // } else {
+        //     $nama_barang_3 = $nama_barang_3;
+        //     $jumlah_barang_3 = $jumlah_barang_3;
+        // }
+        // if (empty($nama_barang_4) && empty($jumlah_barang_4)) {
+        //     $nama_barang_4 = '';
+        //     $jumlah_barang_4 = '';
+        // } else {
+        //     $nama_barang_4 = $nama_barang_4;
+        //     $jumlah_barang_4 = $jumlah_barang_4;
+        // }
+        // if (empty($nama_barang_5) && empty($jumlah_barang_5)) {
+        //     $nama_barang_5 = '';
+        //     $jumlah_barang_5 = '';
+        // } else {
+        //     $nama_barang_5 = $nama_barang_5;
+        //     $jumlah_barang_5 = $jumlah_barang_5;
+        // }
+        // if (empty($nama_barang_6) && empty($jumlah_barang_6)) {
+        //     $nama_barang_6 = '';
+        //     $jumlah_barang_6 = '';
+        // } else {
+        //     $nama_barang_6 = $nama_barang_6;
+        //     $jumlah_barang_6 = $jumlah_barang_6;
+        // }
+        // if (empty($nama_barang_7) && empty($jumlah_barang_7)) {
+        //     $nama_barang_7 = '';
+        //     $jumlah_barang_7 = '';
+        // } else {
+        //     $nama_barang_7 = $nama_barang_7;
+        //     $jumlah_barang_7 = $jumlah_barang_7;
+        // }
+        // if (empty($nama_barang_8) && empty($jumlah_barang_8)) {
+        //     $nama_barang_8 = '';
+        //     $jumlah_barang_8 = '';
+        // } else {
+        //     $nama_barang_8 = $nama_barang_8;
+        //     $jumlah_barang_8 = $jumlah_barang_8;
+        // }
+        // if (empty($nama_barang_9) && empty($jumlah_barang_9)) {
+        //     $nama_barang_9 = '';
+        //     $jumlah_barang_9 = '';
+        // } else {
+        //     $nama_barang_9 = $nama_barang_9;
+        //     $jumlah_barang_9 = $jumlah_barang_9;
+        // }
+        // if (empty($nama_barang_10) && empty($jumlah_barang_10)) {
+        //     $nama_barang_10 = '';
+        //     $jumlah_barang_10 = '';
+        // } else {
+        //     $nama_barang_10 = $nama_barang_10;
+        //     $jumlah_barang_10 = $jumlah_barang_10;
+        // }
 
 
-        // Stok 1
+
+
 
 
 
@@ -119,10 +184,14 @@ class Web extends BaseController
 
 
         $barang = $this->db->query("SELECT * FROM tb_barang where nama_barang = '$nama_barang'")->getResultArray();
+
+
+
         // Ambil harga sewa
         foreach ($barang as $value) {
             $harga_sewa = $value['harga_sewa'];
         }
+
         $total_harga = $harga_sewa * $jumlah_barang * $lama_sewa + $harga_kurir;
         if ($nama_barang_2 != null) {
             $barang2 = $this->db->query("SELECT * FROM tb_barang where nama_barang = '$nama_barang_2'")->getResultArray();
@@ -136,6 +205,7 @@ class Web extends BaseController
             foreach ($barang3 as $value) {
                 $harga_sewa3 = $value['harga_sewa'];
             }
+
             $total_harga = (($harga_sewa * $jumlah_barang) + ($harga_sewa2 * $jumlah_barang_2) + ($harga_sewa3 * $jumlah_barang_3)) * $lama_sewa + $harga_kurir;
         }
         if ($nama_barang_4 != null) {
@@ -602,11 +672,13 @@ class Web extends BaseController
         // $id_pengguna      = session()->get('id_pengguna');
         // $pengguna = $this->db->query("SELECT * FROM tb_akun WHERE id_pengguna = '$id_pengguna'")->getResultArray();
         $ulasan = $this->db->query("SELECT tb_ulasan.*, tb_akun.nama, tb_akun.profil FROM tb_ulasan join tb_akun on tb_akun.id_pengguna = tb_ulasan.id_pengguna where tb_ulasan.id_barang = $id_barang")->getResultArray();
+        $id_pengguna = session()->get('id_pengguna');
 
 
         $data = [
             'barang' => $barang,
             'ulasan' => $ulasan,
+            'id_pengguna' => $id_pengguna
             // 'pengguna' => $pengguna
 
         ];
@@ -646,5 +718,15 @@ class Web extends BaseController
         session()->setFlashdata('gagal', 'Data berhasil Dihapus');
         return redirect()->back();
         // return redirect('Web/profil_detail_barang');
+    }
+
+    public function print($id_sewa)
+    {
+        // $id_sewa = $this->request->getGet('id_sewa');
+        $query = $this->db->query("SELECT * FROM tb_sewa WHERE id_sewa = $id_sewa")->getResultArray();
+        $data = [
+            'data_sewa' => $query
+        ];
+        return view('sewa/print', $data);
     }
 }

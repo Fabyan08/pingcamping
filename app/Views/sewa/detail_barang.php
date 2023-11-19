@@ -45,6 +45,7 @@
 
     <section class="pt-1">
         <div class="container">
+
             <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#tambah">
                 Ulasan
             </button>
@@ -79,7 +80,7 @@
 
                 <?php endforeach; ?>
             </div>
-          
+
             <hr>
         </div>
     </section>

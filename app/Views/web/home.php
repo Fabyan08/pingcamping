@@ -41,18 +41,18 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
                 <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
-                        <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#service">Service</a></li>
-                        <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#destination">Destination</a></li>
+
+                        <!-- <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="/Login/register">Register</a></li>
                         <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#booking">Booking</a></li>
-                        <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#testimonial">Testimonial</a></li>
-                        <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#!">Login</a></li>
-                        <li class="nav-item px-3 px-xl-4"><a class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="#!">Sign Up</a></li>
-                        <li class="nav-item dropdown px-3 px-lg-0"> <a class="d-inline-block ps-0 py-2 pe-3 text-decoration-none dropdown-toggle fw-medium" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">EN</a>
+                        <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#testimonial">Testimonial</a></li> -->
+                        <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="Login/login">Login</a></li>
+                        <li class="nav-item px-3 px-xl-4"><a class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="Login/register">Sign Up</a></li>
+                        <!-- <li class="nav-item dropdown px-3 px-lg-0"> <a class="d-inline-block ps-0 py-2 pe-3 text-decoration-none dropdown-toggle fw-medium" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">EN</a>
                             <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="border-radius:0.3rem;" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#!">EN</a></li>
                                 <li><a class="dropdown-item" href="#!">BN</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -66,9 +66,9 @@
                 <div class="row align-items-center">
                     <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 hero-img" src="<?= base_url('public/assets/landing/img/hero/hero-img.png') ?>" alt="hero-header" /></div>
                     <div class="col-md-7 col-lg-6 text-md-start text-center py-6">
-                        <h4 class="fw-bold text-danger mb-3">Best Destinations around the world</h4>
-                        <h1 class="hero-title">Travel, enjoy and live a new and full life</h1>
-                        <p class="mb-4 fw-medium">Built Wicket longer admire do barton vanity itself do in it.<br class="d-none d-xl-block" />Preferred to sportsmen it engrossed listening. Park gate<br class="d-none d-xl-block" />sell they west hard for the.</p>
+                        <h4 class="fw-bold text-danger mb-3">Selamat Datang di Pingcamping</h4>
+                        <h1 class="hero-title">Temukan berbagai peralatan camping </h1>
+                        <p class="mb-4 fw-medium">untuk petualangan outdoor anda menuju <br> pengalaman yang luar biasa</p>
                         <div class="text-center text-md-start"> <a class="btn btn-primary btn-lg me-md-4 mb-3 mb-md-0 border-0 primary-btn-shadow" href="#!" role="button">Find out more</a>
                             <div class="w-100 d-block d-md-none"></div><a href="#!" role="button" data-bs-toggle="modal" data-bs-target="#popupVideo"><span class="btn btn-danger round-btn-lg rounded-circle me-3 danger-btn-shadow"> <img src="<?= base_url('public/assets/landing/img/hero/play.svg') ?>" width="15" alt="paly" /></span></a><span class="fw-medium">Play Demo</span>
                             <div class="modal fade" id="popupVideo" tabindex="-1" aria-labelledby="popupVideo" aria-hidden="true">
@@ -92,39 +92,39 @@
             <div class="container">
                 <div class="position-absolute z-index--1 end-0 d-none d-lg-block"><img src="<?= base_url('public/assets/landing/img/category/shape.svg') ?>" style="max-width: 200px" alt="service" /></div>
                 <div class="mb-7 text-center">
-                    <h5 class="text-secondary">CATEGORY </h5>
-                    <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">We Offer Best Services</h3>
+                    <h5 class="text-secondary">Kategori </h5>
+                    <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">PingCamping Menawarkan Beberapa Jasa</h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-3 col-sm-6 mb-6">
                         <div class="card service-card shadow-hover rounded-3 text-center align-items-center">
                             <div class="card-body p-xxl-5 p-4"> <img src="<?= base_url('public/assets/landing/img/category/icon1.png') ?>" width="75" alt="Service" />
-                                <h4 class="mb-3">Calculated Weather</h4>
-                                <p class="mb-0 fw-medium">Built Wicket longer admire do barton vanity itself do in it.</p>
+                                <h4 class="mb-3">Perhitungan Cuaca</h4>
+                                <p class="mb-0 fw-medium">Memastikan kamu aman selama camping di sini.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 mb-6">
                         <div class="card service-card shadow-hover rounded-3 text-center align-items-center">
                             <div class="card-body p-xxl-5 p-4"> <img src="<?= base_url('public/assets/landing/img/category/icon2.png') ?>" width="75" alt="Service" />
-                                <h4 class="mb-3">Best Flights</h4>
-                                <p class="mb-0 fw-medium">Engrossed listening. Park gate sell they west hard for the.</p>
+                                <h4 class="mb-3">Perjalanan Terbaik</h4>
+                                <p class="mb-0 fw-medium">Mulai langkah kamu dengan perjalanan cantik view yang indah.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 mb-6">
                         <div class="card service-card shadow-hover rounded-3 text-center align-items-center">
                             <div class="card-body p-xxl-5 p-4"> <img src="<?= base_url('public/assets/landing/img/category/icon3.png') ?>" width="75" alt="Service" />
-                                <h4 class="mb-3">Local Events</h4>
-                                <p class="mb-0 fw-medium">Barton vanity itself do in it. Preferd to men it engrossed listening.</p>
+                                <h4 class="mb-3">Event Tambahan</h4>
+                                <p class="mb-0 fw-medium">Nikmati event gratisan dengan bintang kelas atas yang pastinya asik.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 mb-6">
                         <div class="card service-card shadow-hover rounded-3 text-center align-items-center">
                             <div class="card-body p-xxl-5 p-4"> <img src="<?= base_url('public/assets/landing/img/category/icon4.png') ?>" width="75" alt="Service" />
-                                <h4 class="mb-3">Customization</h4>
-                                <p class="mb-0 fw-medium">We deliver outsourced aviation services for military customers</p>
+                                <h4 class="mb-3">Atur Sesuka Kamu</h4>
+                                <p class="mb-0 fw-medium">Dengan PingCamping, kamu bisa mengatur jadwal hingga paket sesuka hati!</p>
                             </div>
                         </div>
                     </div>
@@ -143,42 +143,27 @@
         <section class="pt-5" id="destination">
 
             <div class="container">
-                <div class="position-absolute start-100 bottom-0 translate-middle-x d-none d-xl-block ms-xl-n4"><img src="assets/img/dest/shape.svg" alt="destination" /></div>
+                <div class="position-absolute start-100 bottom-0 translate-middle-x d-none d-xl-block ms-xl-n4"><img src="<?= base_url('public/assets/landing/img/dest/shape.svg') ?>" alt="destination" /></div>
                 <div class="mb-7 text-center">
-                    <h5 class="text-secondary">Top Selling </h5>
-                    <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Top Destinations</h3>
+                    <h5 class="text-secondary">Barang Kami</h5>
+                    <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Apa Yang Kamu Inginkan?</h3>
                 </div>
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="card overflow-hidden shadow"> <img class="card-img-top" src="assets/img/dest/dest1.jpg" alt="Rome, Italty" />
-                            <div class="card-body py-4 px-3">
-                                <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
-                                    <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link" href="#!">Rome, Italty</a></h4><span class="fs-1 fw-medium">$5,42k</span>
+                <div class="row d-flex justify-content-center">
+                    <?php foreach ($barang as $key => $value) : ?>
+
+                        <div class="col-md-4 mb-4">
+                            <div class="card overflow-hidden shadow"> <img class="card-img-top" style="width: 500px; height: 300px; object-fit: cover" src="<?= base_url('public/assets/img/barang/' . $value['gambar'])  ?>" alt="Rome, Italty" />
+                                <div class="card-body py-4 px-3">
+                                    <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
+                                        <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link" href="<?= base_url('Web/detail_barang/' . $value['id_barang'])  ?>"> <?= $value['nama_barang'] ?></a></h4><span class="fs-1 fw-medium">Rp. <?= number_format($value['harga_sewa'], 0, ',', '.')  ?> / Hari</span>
+                                    </div>
+                                    <div class="d-flex align-items-center"> <img src="<?= base_url('public/assets/landing/img/dest/navigation.svg ') ?>" style="margin-right: 14px" width="20" alt="navigation" /><span class="fs-0 fw-medium"><?= $value['detail_barang'] ?></span></div>
                                 </div>
-                                <div class="d-flex align-items-center"> <img src="assets/img/dest/navigation.svg" style="margin-right: 14px" width="20" alt="navigation" /><span class="fs-0 fw-medium">10 Days Trip</span></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card overflow-hidden shadow"> <img class="card-img-top" src="assets/img/dest/dest2.jpg" alt="London, UK" />
-                            <div class="card-body py-4 px-3">
-                                <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
-                                    <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link" href="#!">London, UK</a></h4><span class="fs-1 fw-medium">$4.2k</span>
-                                </div>
-                                <div class="d-flex align-items-center"> <img src="assets/img/dest/navigation.svg" style="margin-right: 14px" width="20" alt="navigation" /><span class="fs-0 fw-medium">12 Days Trip</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card overflow-hidden shadow"> <img class="card-img-top" src="assets/img/dest/dest3.jpg" alt="Full Europe" />
-                            <div class="card-body py-4 px-3">
-                                <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
-                                    <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link" href="#!">Full Europe</a></h4><span class="fs-1 fw-medium">$15k</span>
-                                </div>
-                                <div class="d-flex align-items-center"> <img src="assets/img/dest/navigation.svg" style="margin-right: 14px" width="20" alt="navigation" /><span class="fs-0 fw-medium">28 Days Trip</span></div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
+
+
                 </div>
             </div><!-- end of .container-->
 
@@ -197,28 +182,28 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="mb-4 text-start">
-                            <h5 class="text-secondary">Easy and Fast </h5>
-                            <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Book your next trip in 3 easy steps</h3>
+                            <h5 class="text-secondary">Cepat dan Mudah</h5>
+                            <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Booking dengan 3 langkah</h3>
                         </div>
                         <div class="d-flex align-items-start mb-5">
                             <div class="bg-primary me-sm-4 me-3 p-3" style="border-radius: 13px"> <img src="<?= base_url('public/assets/landing//img/steps/selection.svg') ?>" width="22" alt="steps" /></div>
                             <div class="flex-1">
-                                <h5 class="text-secondary fw-bold fs-0">Choose Destination</h5>
-                                <p>Choose your favourite place. No matter <br class="d-none d-sm-block"> where you travel inside the World.</p>
+                                <h5 class="text-secondary fw-bold fs-0">Pilih Barangmu</h5>
+                                <p>Pilih sesuka hati yang kamu sukai</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-start mb-5">
                             <div class="bg-danger me-sm-4 me-3 p-3" style="border-radius: 13px"> <img src="<?= base_url('public/assets/landing/img/steps/water-sport.svg') ?>" width="22" alt="steps" /></div>
                             <div class="flex-1">
-                                <h5 class="text-secondary fw-bold fs-0">Make Payment</h5>
-                                <p>After find your perfect spot, make your <br class="d-none d-sm-block"> payment and get ready to travel.</p>
+                                <h5 class="text-secondary fw-bold fs-0">Buat Pembayaran</h5>
+                                <p>Setelah menemukan yang kamu inginkan, bayar sesuai nominalnya ya!</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-start mb-5">
                             <div class="bg-info me-sm-4 me-3 p-3" style="border-radius: 13px"> <img src="<?= base_url('public/assets/landing/img/steps/taxi.svg') ?>" width="22" alt="steps" /></div>
                             <div class="flex-1">
-                                <h5 class="text-secondary fw-bold fs-0">Reach Airport on Selected Date</h5>
-                                <p>Lastly, you have to arrive at the airport <br class="d-none d-sm-block"> on time and enjoy the vacation.</p>
+                                <h5 class="text-secondary fw-bold fs-0">Sukses dan Berhasil</h5>
+                                <p>Tak perlu lama, transaksi kamu sukses dan barang akan segera sampai!</p>
                             </div>
                         </div>
                     </div>
@@ -227,7 +212,7 @@
                             <div class="position-absolute z-index--1 me-10 me-xxl-0" style="right:-160px;top:-210px;"> <img src="<?= base_url('public/assets/landing/img/steps/bg.png') ?>" style="max-width:550px;" alt="shape" /></div>
                             <div class="card-body p-3"> <img class="mb-4 mt-2 rounded-2 w-100" src="<?= base_url('public/assets/landing/img/steps/booking-img.jpg') ?>" alt="booking" />
                                 <div>
-                                    <h5 class="fw-medium">Trip To Greece</h5>
+                                    <h5 class="fw-medium">Camping Terbaik</h5>
                                     <p class="fs--1 mb-3 fw-medium">14-29 June | by Robbin joseph</p>
                                     <div class="icon-group mb-4"> <span class="btn icon-item"> <img src="<?= base_url('public/assets/landing/img/steps/leaf.svg') ?>" alt="" /></span><span class="btn icon-item"> <img src="<?= base_url('public/assets/landing/img/steps/map.svg') ?>" alt="" /></span><span class="btn icon-item"> <img src="<?= base_url('public/assets/landing/img/steps/send.svg') ?>" alt="" /></span>
                                     </div>
@@ -274,8 +259,8 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="mb-8 text-start">
-                            <h5 class="text-secondary">Testimonials </h5>
-                            <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">What people say about Us.</h3>
+                            <h5 class="text-secondary">Review </h5>
+                            <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Apa Kata Orang Tentang PingCamping?</h3>
                         </div>
                     </div>
                     <div class="col-lg-1"></div>
@@ -292,7 +277,7 @@
                                         <div class="card shadow" style="border-radius:10px;">
                                             <div class="position-absolute start-0 top-0 translate-middle"> <img class="rounded-circle fit-cover" src="<?= base_url('public/assets/landing/img/testimonial/author.png') ?>" height="65" width="65" alt="" /></div>
                                             <div class="card-body p-4">
-                                                <p class="fw-medium mb-4">&quot;On the Windows talking painted pasture yet its express parties use. Sure last upon he same as knew next. Of believed or diverted no.&quot;</p>
+                                                <p class="fw-medium mb-4">&quot;Sangat Keren dan Menarik.&quot;</p>
                                                 <h5 class="text-secondary">Mike taylor</h5>
                                                 <p class="fw-medium fs--1 mb-0">Lahore, Pakistan</p>
                                             </div>
@@ -303,7 +288,8 @@
                                         <div class="card shadow" style="border-radius:10px;">
                                             <div class="position-absolute start-0 top-0 translate-middle"> <img class="rounded-circle fit-cover" src="<?= base_url('public/assets/landing/img/testimonial/author2.png') ?>" height="65" width="65" alt="" /></div>
                                             <div class="card-body p-4">
-                                                <p class="fw-medium mb-4">&quot;Jadoo is recognized as one of the finest travel agency in the world. When it came to planning a trip, I found them to be dependable.&quot;</p>
+                                                <p class="fw-medium mb-4">&quot;Sangat Keren dan Menarik.&quot;</p>
+
                                                 <h5 class="text-secondary">Thomas Wagon</h5>
                                                 <p class="fw-medium fs--1 mb-0">CEO of Red Button</p>
                                             </div>
@@ -314,7 +300,8 @@
                                         <div class="card shadow" style="border-radius:10px;">
                                             <div class="position-absolute start-0 top-0 translate-middle"> <img class="rounded-circle fit-cover" src="<?= base_url('public/assets/landing/img/testimonial/author3.png') ?>" height="65" width="65" alt="" /></div>
                                             <div class="card-body p-4">
-                                                <p class="fw-medium mb-4">&quot;On the Windows talking painted pasture yet its express parties use. Sure last upon he same as knew next. Of believed or diverted no.&quot;</p>
+                                                <p class="fw-medium mb-4">&quot;Sangat Keren dan Menarik.&quot;</p>
+
                                                 <h5 class="text-secondary">Kelly Willium</h5>
                                                 <p class="fw-medium fs--1 mb-0">Khulna, Bangladesh</p>
                                             </div>
@@ -381,7 +368,7 @@
                     <div class="position-absolute start-0 bottom-0 ms-3 z-index--1 d-none d-sm-block"> <img src="<?= base_url('public/assets/landing/img/cta/shape-bg1.png') ?>" style="max-width: 340px;" alt="cta shape" /></div>
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-md-10">
-                            <h2 class="text-secondary lh-1-7 mb-7">Subscribe to get information, latest news and other interesting offers about Cobham</h2>
+                            <h2 class="text-secondary lh-1-7 mb-7">Subscribe kami dengan mengirimkan email kamu di bawah ini!</h2>
                             <form class="row g-3 align-items-center w-lg-75 mx-auto">
                                 <div class="col-sm">
                                     <div class="input-group-icon">
@@ -412,7 +399,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-7 col-12 mb-4 mb-md-6 mb-lg-0 order-0">
                         <h2>PingCamping</h2>
-                        <p class="fs--1 text-secondary mb-0 fw-medium">Book your trip in minute, get full Control for much longer.</p>
+                        <p class="fs--1 text-secondary mb-0 fw-medium">Kebutuhan Camping Sesuka Hati Kamu yang Aman dan Terpercaya!</p>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-4 mb-lg-0 order-lg-1 order-md-2">
                         <h4 class="footer-heading-color fw-bold font-sans-serif mb-3 mb-lg-4">Company</h4>
@@ -453,7 +440,7 @@
 
 
         <div class="py-5 text-center">
-            <p class="mb-0 text-secondary fs--1 fw-medium">All rights reserved@jadoo.co </p>
+            <p class="mb-0 text-secondary fs--1 fw-medium">All rights reserved </p>
         </div>
     </main>
     <!-- ======= Hero Section ======= -->

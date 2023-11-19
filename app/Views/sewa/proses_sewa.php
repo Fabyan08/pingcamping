@@ -36,41 +36,71 @@
                                     <input type="text" name="jumlah_barang" class="form-control" id="jumlah_barang">
                                 </div>
                                 <div class="col" style="margin-top: 30px;">
+                                    <!-- Tombol plus dan minus hanya muncul di input kedua -->
                                     <i class="bi bi-plus-circle" style="cursor: pointer;" onclick="duplicateForm(this)"></i>
-                                    <i class="bi bi-dash-circle" style="cursor: pointer;" onclick="removeForm(this)"></i>
-
+                                    <i class="bi bi-dash-circle" style="cursor: pointer; display: none;" onclick="removeForm(this)"></i>
                                 </div>
                             </div>
                         </div>
 
                         <script>
-                            var formIndex = 1;
+                            let formIndex = 1;
 
-                            function duplicateForm() {
-                                var originalForm = document.getElementById('form-container');
-                                var clonedForm = originalForm.cloneNode(true);
+                            function duplicateForm(element) {
+                                let originalForm = element.closest('.clone');
+                                let clonedForm = originalForm.cloneNode(true);
                                 formIndex++;
+
+                                // Tambahkan kelas khusus untuk formulir kedua dan seterusnya
+                                clonedForm.classList.add('additional-form');
+
+                                // Setel ulang ID dan nama formulir yang baru
                                 clonedForm.querySelectorAll('[id]').forEach(function(element) {
                                     element.id = element.id.replace(/\d+/, formIndex);
                                 });
-                                clonedForm.querySelector('[name="jumlah_barang"]').name = 'jumlah_barang_' + formIndex;
                                 clonedForm.querySelector('[name="nama_barang"]').name = 'nama_barang_' + formIndex;
-                                var formContainer = document.getElementById('form-container');
+                                clonedForm.querySelector('[name="jumlah_barang"]').name = 'jumlah_barang_' + formIndex;
+
+                                // Sisipkan formulir yang baru di antara formulir asli dan formulir selanjutnya
+                                let formContainer = document.getElementById('form-container');
                                 formContainer.parentNode.insertBefore(clonedForm, formContainer.nextSibling);
+
+                                // Tombol plus dan minus hanya muncul di input kedua setelah ditambahkan
+                                updateButtonsVisibility();
                             }
 
                             function removeForm(element) {
                                 // Dapatkan elemen form yang ingin dihapus
-                                var formToRemove = element.closest('.clone');
+                                let formToRemove = element.closest('.clone');
 
-                                // Hapus elemen form
-                                formToRemove.parentNode.removeChild(formToRemove);
+                                // Pastikan formulir pertama tidak dihapus
+                                if (formToRemove.classList.contains('additional-form')) {
+                                    formToRemove.parentNode.removeChild(formToRemove);
+
+                                    // Update formIndex setelah menghapus form
+                                    formIndex--;
+
+                                    // Tombol plus dan minus hanya muncul di input kedua setelah ditambahkan
+                                    updateButtonsVisibility();
+                                }
+                            }
+
+                            function updateButtonsVisibility() {
+                                let forms = document.querySelectorAll('.clone');
+                                forms.forEach(function(form, index) {
+                                    let buttons = form.querySelectorAll('.col i');
+                                    if (buttons.length === 2) {
+                                        buttons[0].style.display = index === 0 ? 'inline-block' : 'none';
+
+                                        // Tombol minus hanya muncul pada input kedua tambahan
+                                        buttons[1].style.display = index === 1 ? 'inline-block' : 'none';
+                                    }
+                                });
                             }
                         </script>
-
-
-
                     </div>
+
+
                     <div class="form-outline mb-4">
 
                         <div class="row">

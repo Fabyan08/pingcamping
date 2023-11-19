@@ -72,7 +72,7 @@
 
                             <?php endforeach; ?>
                             <div class="d-flex justify-content-end">
-                                <a href="cetak?id_sewa=<?= $value['id_sewa'] ?> " class="btn btn-success btn-lg">Print</a>
+                                <a href="<?= base_url('Web/print/' )  ?>" class="btn btn-success btn-lg">Print</a>
                             </div>
 
                         </div>

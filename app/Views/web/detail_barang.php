@@ -41,46 +41,117 @@
 
         </div>
     </section><!-- End Team Section -->
+
+
     <section class="pt-1">
         <div class="container">
 
-            <table id="table_id" class="table is-narrow display stripe cell-border bordered" style="border: 1px;">
-                <thead>
-                    <tr>
-                        <th style="text-align: center;">Ulasan</th>
-                    </tr>
-                </thead>
-                <tbody>
+         
+            <?php if (session()->getFlashdata('success')) { ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?= session()->getFlashdata('success') ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php } ?>
 
-                    <?php foreach ($ulasan as $key  => $dt) : ?>
-                        <tr>
-                            <td>
-                                <div class="grb-accordion">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a<?= $dt['id_ulasan'] ?>" aria-expanded="false">
-                                                <p style="font-weight: bold;"><?= $dt['nama'] ?></p>
-                                            </button>
-                                        </h2>
-                                        <div id="a<?= $dt['id_ulasan'] ?>" class="accordion-collapse collapse">
-                                            <hr>
+            <div class="mt-3">
 
-                                            <div class="accordion-body">
-                                                <p style="">"<?= $dt['ulasan'] ?>"</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                <?php foreach ($ulasan as $key  => $dt) : ?>
+
+                    <div class="d-flex">
+
+                        <div class="p-3 mb-2 bg-white text-dark d-flex  justify-content-between shadow-lg col-md-8" style="align-items: center; gap: 10px;">
+                            <div class="d-flex gap-3">
+                                <img src="<?= base_url('public/assets/img/auth/' . $dt['profil'])  ?>" class="rounded-circle" style="width: 60px;" alt="">
+                                <div>
+                                    <h5><?= $dt['nama'] ?></h5>
+                                    <h6><?= $dt['ulasan'] ?></h6>
                                 </div>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                            </div>
+                            <div>
+                                <h6><?= date('j F Y', strtotime($dt['tanggal'])) ?></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php endforeach; ?>
+            </div>
 
             <hr>
         </div>
     </section>
+
 </main>
 
+<!-- Hapus -->
+<?php foreach ($ulasan as $key  => $dt) : ?>
+
+    <div class="modal fade" id="hapus_barang<?= $dt['id_ulasan'] ?>">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Hapus Data</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <form action="<?= base_url('Web/hapus_ulasan/' . $dt['id_ulasan']) ?>" method="post" enctype="multipart/form-data">
+                    <!-- Isi Modal -->
+                    <div class="modal-body">
+                        <p>Apakah anda yakin?</p>
+                    </div>
+
+                    <!-- Footer Modal -->
+                    <div class="modal-footer">
+
+                        <button type="submit" class="btn btn-info mb-2">
+                            Hapus Data
+                        </button>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+<!-- MODAL TAMBAH -->
+<div class="modal fade" id="tambah">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Header Modal -->
+            <div class="modal-header">
+                <h4 class="modal-title">Tambah Ulasan</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <form action="<?= base_url('Web/tambah_ulasan') ?>" method="post" enctype="multipart/form-data">
+                <!-- Isi Modal -->
+                <div class="modal-body">
+                    <?= csrf_field(); ?>
+                    <textarea required class="form-control" name="ulasan"></textarea>
+                </div>
+
+                <!-- Footer Modal -->
+
+
+                <?php foreach ($barang as $key  => $dt) : ?>
+                    <input type="hidden" value="<?= $dt['id_barang'] ?>" name="id_barang">
+                <?php endforeach; ?>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-info mb-2">
+                        Tambah Data
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <?= $this->endSection(); ?>
