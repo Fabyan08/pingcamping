@@ -33,43 +33,38 @@
                             <div class="row align-items-center">
                                 <div class="col-md-4">
                                     <label class="form-label">Jumlah Barang</label>
-                                    <input type="text" name="jumlah_barang" class="form-control" id="jumlah_barang_1">
+                                    <input type="text" name="jumlah_barang" class="form-control" id="jumlah_barang">
                                 </div>
                                 <div class="col" style="margin-top: 30px;">
-                                    <i class="bi bi-plus-circle" style="cursor: pointer;" onclick="duplicateForm()"></i>
+                                    <i class="bi bi-plus-circle" style="cursor: pointer;" onclick="duplicateForm(this)"></i>
+                                    <i class="bi bi-dash-circle" style="cursor: pointer;" onclick="removeForm(this)"></i>
+
                                 </div>
                             </div>
                         </div>
 
                         <script>
-                            var formIndex = 1; // Variabel untuk melacak indeks form
+                            var formIndex = 1;
 
                             function duplicateForm() {
-                                // Dapatkan elemen form yang akan di-duplicate
                                 var originalForm = document.getElementById('form-container');
-
-                                // Salin elemen form
                                 var clonedForm = originalForm.cloneNode(true);
-
-                                // Tingkatkan indeks untuk nama dan ID baru
                                 formIndex++;
-
-                                // Ubah semua elemen dengan atribut id di dalam form yang di-duplicate
                                 clonedForm.querySelectorAll('[id]').forEach(function(element) {
                                     element.id = element.id.replace(/\d+/, formIndex);
                                 });
-
-                                // Atur nama baru untuk elemen input jumlah_barang di dalam form yang di-duplicate
                                 clonedForm.querySelector('[name="jumlah_barang"]').name = 'jumlah_barang_' + formIndex;
-
-                                // Atur nama baru untuk elemen select nama_barang di dalam form yang di-duplicate
                                 clonedForm.querySelector('[name="nama_barang"]').name = 'nama_barang_' + formIndex;
-
-                                // Dapatkan kontainer tempat Anda ingin menambahkan elemen form yang di-duplicate
                                 var formContainer = document.getElementById('form-container');
-
-                                // Tambahkan elemen form yang di-duplicate ke dalam kontainer, tetapi sebelum tombol tambah
                                 formContainer.parentNode.insertBefore(clonedForm, formContainer.nextSibling);
+                            }
+
+                            function removeForm(element) {
+                                // Dapatkan elemen form yang ingin dihapus
+                                var formToRemove = element.closest('.clone');
+
+                                // Hapus elemen form
+                                formToRemove.parentNode.removeChild(formToRemove);
                             }
                         </script>
 

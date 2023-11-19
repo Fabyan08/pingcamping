@@ -599,11 +599,16 @@ class Web extends BaseController
     public function profil_detail_barang($id_barang)
     {
         $barang = $this->db->query("SELECT * FROM tb_barang where id_barang = $id_barang")->getResultArray();
-        $ulasan = $this->db->query("SELECT tb_ulasan.*, tb_akun.nama FROM tb_ulasan join tb_akun on tb_akun.id_pengguna = tb_ulasan.id_pengguna where tb_ulasan.id_barang = $id_barang")->getResultArray();
+        // $id_pengguna      = session()->get('id_pengguna');
+        // $pengguna = $this->db->query("SELECT * FROM tb_akun WHERE id_pengguna = '$id_pengguna'")->getResultArray();
+        $ulasan = $this->db->query("SELECT tb_ulasan.*, tb_akun.nama, tb_akun.profil FROM tb_ulasan join tb_akun on tb_akun.id_pengguna = tb_ulasan.id_pengguna where tb_ulasan.id_barang = $id_barang")->getResultArray();
+
 
         $data = [
             'barang' => $barang,
             'ulasan' => $ulasan,
+            // 'pengguna' => $pengguna
+
         ];
         return view('sewa/detail_barang', $data);
     }

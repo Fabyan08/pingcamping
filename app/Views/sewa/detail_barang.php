@@ -57,24 +57,29 @@
                 </div>
             <?php } ?>
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">User</th>
-                        <th scope="col">Ulasan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($ulasan as $key  => $dt) : ?>
-                        <tr>
-                            <th scope="row"><?= $key + 1 ?></th>
-                            <td><?= $dt['nama'] ?></td>
-                            <td><?= $dt['ulasan'] ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <div class="mt-3">
+
+                <?php foreach ($ulasan as $key  => $dt) : ?>
+
+                    <div class="d-flex">
+
+                        <div class="p-3 mb-2 bg-white text-dark d-flex  justify-content-between shadow-lg col-md-8" style="align-items: center; gap: 10px;">
+                            <div class="d-flex gap-3">
+                                <img src="<?= base_url('public/assets/img/auth/' . $dt['profil'])  ?>" class="rounded-circle" style="width: 60px;" alt="">
+                                <div>
+                                    <h5><?= $dt['nama'] ?></h5>
+                                    <h6><?= $dt['ulasan'] ?></h6>
+                                </div>
+                            </div>
+                            <div>
+                                <h6><?= date('j F Y', strtotime($dt['tanggal'])) ?></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php endforeach; ?>
+            </div>
+          
             <hr>
         </div>
     </section>
