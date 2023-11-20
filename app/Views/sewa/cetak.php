@@ -22,7 +22,7 @@
                     <div class="card shadow-lg">
                         <div class="card-body p-10" style="padding: 60px;">
                             <?php foreach ($data_sewa as $key => $value) : ?>
-                                <h5 class="text-center"><?= $value['nama_barang'] ?></h5>
+                                <h5 class="text-center"><?= $value['nama_barang'] . ', ' . $value['barang2'] . ', ' . $value['barang3'] . ', ' . $value['barang4'] . ', ' . $value['barang5'] . ', ' . $value['barang6'] . ', ' . $value['barang7'] . ', ' . $value['barang8'] . ', ' . $value['barang9'] . ', ' . $value['barang10'] ?></h5>
                                 <div class="row">
                                     <div class="col">
                                         <?php foreach ($pengguna as $key => $pgn) : ?>
@@ -70,10 +70,13 @@
                                 </div>
 
 
+                                <div class="d-flex justify-content-end">
+                                    <!-- <a href="<?php  //base_url('Web/print/' . $value['id_sewa'])  
+                                                    ?>" class="btn btn-success btn-lg">Print</a> -->
+                                    <a href="<?= base_url('Web/print/' . $value['id_sewa']) ?>" class="btn btn-success btn-lg">Print</a>
+                                </div>
                             <?php endforeach; ?>
-                            <div class="d-flex justify-content-end">
-                                <a href="<?= base_url('Web/print/' )  ?>" class="btn btn-success btn-lg">Print</a>
-                            </div>
+
 
                         </div>
                     </div>

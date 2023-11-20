@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
     <!--  All snippets are MIT license http://bootdey.com/license -->
-    <title>Kwitansi SPP</title>
+    <title>Cetak Data Pembayaran</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -31,56 +31,126 @@
                                                         <h2>Struk PingCamping</h2>
                                                     </td>
                                                 </tr>
-                                                <?php
-                                                // include('../koneksi.php');
-                                                // $nisn = $_GET['nisn'];
-                                                // $bulan = $_GET['bulan_bayar'];
-                                                // $sql = "SELECT * FROM pembayaran,siswa,kelas,spp,petugas WHERE tgl_bayar AND pembayaran.nisn=siswa.nisn AND siswa.id_kelas=kelas.id_kelas AND pembayaran.id_spp=spp.id_spp AND pembayaran.id_petugas=petugas.id_petugas AND siswa.nisn = $nisn AND pembayaran.bulan_bayar = '$bulan' ORDER by tgl_bayar ASC";
-                                                // $query = mysqli_query($koneksi, $sql);
-                                                // $data = mysqli_fetch_array($query);
-                                                ?>
+
                                                 <tr>
                                                     <td class="content-block">
                                                         <table class="invoice">
                                                             <tbody>
+                                                                <?php foreach ($data_sewa as $key => $value) : ?>
+                                                                    <h4><?= 'Atas Nama: ' . $value['nama_pengguna'] ?></h4>
+                                                                    <h5><?= 'ID Sewa: ' . $value['id_sewa'] ?></h5>
+                                                    </td>
+                                                </tr>
+                                                <h5><?= 'Tanggal: ' . (date('d F Y', strtotime($value['tanggal_sewa']))) . ' - ' . (date('d F Y', strtotime($value['tanggal_sewa']))) ?></h5>
+                                                <tr>
+                                                    <td>
+                                                        <table class="invoice-items" cellpadding="0" cellspacing="0">
+                                                            <tbody>
                                                                 <tr>
-                                                                    <td>udin</td>
-                                                                       <h5>aksmam</h5>
-                                                                    </td>
+                                                                    <td><?= $value['nama_barang'] ?></td>
+                                                                    <td class="alignright"><?= $value['jumlah_barang'] ?></td>
                                                                 </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <table class="invoice-items" cellpadding="0" cellspacing="0">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td>Jumlah Bayar</td>
-                                                                                    <td class="alignright">Rp 100.000</td>
-                                                                                </tr>
-                                                                                <tr class="total">
-                                                                                    <td class="alignright" width="80%">Total </td>
-                                                                                    <td class="alignright">Rp 200.000</td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
+                                                                <?php if (!empty($value['barang2'])) { ?>
+                                                                    <tr>
+                                                                        <td><?= $value['barang2'] ?></td>
+                                                                        <td class="alignright"><?= $value['jumlah2'] ?></td>
+                                                                    </tr>
+                                                                <?php } ?>
+                                                                <?php if (!empty($value['barang3'])) { ?>
+                                                                    <tr>
+                                                                        <td><?= $value['barang3'] ?></td>
+                                                                        <td class="alignright"><?= $value['jumlah3'] ?></td>
+                                                                    </tr>
+                                                                <?php } ?>
+                                                                <?php if (!empty($value['barang4'])) { ?>
+                                                                    <tr>
+                                                                        <td><?= $value['barang4'] ?></td>
+                                                                        <td class="alignright"><?= $value['jumlah4'] ?></td>
+                                                                    </tr>
+                                                                <?php } ?>
+                                                                <?php if (!empty($value['barang5'])) { ?>
+                                                                    <tr>
+                                                                        <td><?= $value['barang5'] ?></td>
+                                                                        <td class="alignright"><?= $value['jumlah5'] ?></td>
+                                                                    </tr>
+                                                                <?php } ?>
+
+                                                                <?php if (!empty($value['barang6'])) { ?>
+                                                                    <tr>
+                                                                        <td><?= $value['barang6'] ?></td>
+                                                                        <td class="alignright"><?= $value['jumlah6'] ?></td>
+                                                                    </tr>
+                                                                <?php } ?>
+                                                                <?php if (!empty($value['barang7'])) { ?>
+                                                                    <tr>
+                                                                        <td><?= $value['barang7'] ?></td>
+                                                                        <td class="alignright"><?= $value['jumlah7'] ?></td>
+                                                                    </tr>
+                                                                <?php } ?>
+                                                                <?php if (!empty($value['barang8'])) { ?>
+                                                                    <tr>
+                                                                        <td><?= $value['barang8'] ?></td>
+                                                                        <td class="alignright"><?= $value['jumlah8'] ?></td>
+                                                                    </tr>
+                                                                <?php } ?>
+                                                                <?php if (!empty($value['barang9'])) { ?>
+                                                                    <tr>
+                                                                        <td><?= $value['barang9'] ?></td>
+                                                                        <td class="alignright"><?= $value['jumlah9'] ?></td>
+                                                                    </tr>
+                                                                <?php } ?>
+                                                                <?php if (!empty($value['barang10'])) { ?>
+                                                                    <tr>
+                                                                        <td><?= $value['barang10'] ?></td>
+                                                                        <td class="alignright"><?= $value['jumlah10'] ?></td>
+                                                                    </tr>
+                                                                <?php } ?>
+
+
+                                                                <!-- <tr class="total">
+                                                                    <td class="alignright" width="80%">Total </td>
+                                                                    <td class="alignright">Rp 200.000</td>
+                                                                </tr> -->
+
                                                             </tbody>
                                                         </table>
                                                     </td>
                                                 </tr>
+                                                <tr>
+                                                    <td>
+                                                        <table class="invoice-items" cellpadding="0" cellspacing="0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Jumlah Bayar</td>
+                                                                    <td class="alignright"><?= $value['total_harga'] ?></td>
+                                                                </tr>
+                                                                <tr class="total">
+                                                                    <td class="alignright" width="80%">Metode </td>
+                                                                    <td class="alignright"><?= $value['pembayaran']  . ' - ' . $value['status'] ?></td>
+                                                                </tr>
+                                                            <?php endforeach ?>
 
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </td>
                                 </tr>
+
                             </tbody>
                         </table>
-
-                    </div>
                 </td>
-                <td></td>
             </tr>
         </tbody>
+    </table>
+
+    </div>
+    </td>
+    <td></td>
+    </tr>
+    </tbody>
     </table>
 
     <style type="text/css">
@@ -382,7 +452,7 @@
     </style>
 
     <script type="text/javascript">
-
+        print()
     </script>
 </body>
 

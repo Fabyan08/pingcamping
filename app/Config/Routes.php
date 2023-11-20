@@ -18,7 +18,11 @@ $routes->group("Web", function ($routes) {
     $routes->post('proses_sewa', 'Web::proses_sewa');
     $routes->get('berhasil', 'Web::berhasil');
 
-    $routes->get('print', 'Web::print');
+    // $routes->get('print', 'Web::print');
+    $routes->get('print/(:any)', 'Web::print/$1');
+
+    // $routes->get('cetak_print', 'Web::cetak_print');
+    $routes->get('cetak_print/(:any)', 'Web::cetak_print/$1');
 
     $routes->post('proses_pembayaran', 'Web::proses_pembayaran');
     $routes->get('pembayaran', 'Web::pembayaran');

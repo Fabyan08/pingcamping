@@ -547,8 +547,6 @@ class Web extends BaseController
         $pengguna = $this->db->query("SELECT * FROM tb_akun WHERE id_pengguna = '$id_pengguna'")->getResultArray();
 
 
-
-
         $id_sewa = $this->request->getGet('id_sewa');
         // Load the Query Builder library
         $builder = $this->db->table('tb_sewa');
@@ -723,10 +721,21 @@ class Web extends BaseController
     public function print($id_sewa)
     {
         // $id_sewa = $this->request->getGet('id_sewa');
-        $query = $this->db->query("SELECT * FROM tb_sewa WHERE id_sewa = $id_sewa")->getResultArray();
+        $nama = session()->get('nama');
+        $query = $this->db->query("SELECT * FROM tb_sewa, tb_akun WHERE tb_sewa.nama_pengguna = tb_akun.nama AND id_sewa = $id_sewa")->getResultArray();
         $data = [
             'data_sewa' => $query
         ];
         return view('sewa/print', $data);
+    }
+
+    public function cetak_print($id_sewa)
+    {
+        $nama = session()->get('nama');
+        $query = $this->db->query("SELECT * FROM tb_sewa, tb_akun WHERE tb_sewa.nama_pengguna = tb_akun.nama AND id_sewa = $id_sewa")->getResultArray();
+        $data = [
+            'data_sewa' => $query
+        ];
+        return view('sewa/cetak_print', $data);
     }
 }
